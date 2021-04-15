@@ -1,5 +1,14 @@
 # Docs
-Some arg names are a bit weird because I don't know how to name them
+Some arg names are a bit weird because I don't know how to name them   
+
+##List of Features:   
+[upper](#upper)   
+[lower](#lower)     
+[to_list](#to_list)  
+[to_dict](#to_dict)   
+[to_int](#to_int)    
+[colorize](#colorize)   
+[count_pattern](#count_pattern)   
 
 ### upper
 BetterString.upper(size [optional])
