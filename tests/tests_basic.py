@@ -2,7 +2,7 @@ from BetterString import *
 
 test_string = BetterString("This is a Better String")
 
-print(test_string.count_pattern("e"))
+print(test_string.count("e"))
 print(test_string.lower())
 print(test_string.lower(3))
 print(test_string.upper())
@@ -20,3 +20,8 @@ print(test_string.to_dict())
 
 test_string = BetterString("1337")
 print(test_string.to_int())
+
+# Some normal str funcs to verify that they work
+test_string = BetterString("{} String")
+print(test_string.format("Test"))
+print(test_string.join(["t", "e", "s", "t"]))

@@ -18,14 +18,13 @@ class BetterString(str):
     BetterString has the same functions as str with a few extras and changes
     """.replace("    ", "")[1:]
 
-    def __init__(self, inp, **kwargs):
+    def __init__(self, inp):
         super().__init__()
 
         self.string = str(inp)
-        self.kwargs = kwargs
 
     # Upper / Lower
-    def lower(self, size: int or str = FULL_SIZE) -> str:
+    def lower(self, size: int or str = FULL_SIZE):
         """
         Better Upper function. You can
         choose how many characters will
@@ -47,15 +46,13 @@ class BetterString(str):
 
         lower_string += self.string[i + 1:]
 
-        return lower_string
+        return BetterString(lower_string)
 
-    def upper(self, size: int or str = FULL_SIZE) -> str:
+    def upper(self, size: int or str = FULL_SIZE):
         """
         Better Upper function. You can
         choose how many characters will
         be upper size
-
-        :param size: amount of characters that will be replaced with the upper sized version of that char
         """
         upper_string = ""
         if size == "fs":
@@ -73,7 +70,7 @@ class BetterString(str):
 
         upper_string += self.string[i+1:]
 
-        return upper_string
+        return BetterString(upper_string)
 
     # Convert Str to type ...
     # I will not cover all types!
@@ -98,7 +95,7 @@ class BetterString(str):
         try:
             return int(self.string)
         except ValueError:
-            raise CannotConvertTo("int")
+            raise CannotConvertToError("int")
 
     def to_dict(self) -> dict:
         """
@@ -107,14 +104,14 @@ class BetterString(str):
         try:
             return eval(self.string)
         except SyntaxError:
-            raise CannotConvertTo("dict") from None
+            raise CannotConvertToError("dict") from None
         except NameError:
-            raise CannotConvertTo("dict") from None
+            raise CannotConvertToError("dict") from None
         except TypeError:
-            raise CannotConvertTo("dict") from None
+            raise CannotConvertToError("dict") from None
 
     # Extras
-    def colorize(self, color: str, bold: bool = False, underline: bool = False) -> str:
+    def colorize(self, color: str, bold: bool = False, underline: bool = False):
         """
         Colorizes the string with the given color
 
@@ -129,9 +126,9 @@ class BetterString(str):
         :param bold: If the text should be bold
         :param underline: If the text should be underlined
         """
-        return colorize(self.string, color, bold, underline)
+        return BetterString(colorize(self.string, color, bold, underline))
 
-    def count_pattern(self, pattern: str) -> int:
+    def count(self, pattern: str, start: int = 0, end: int = FULL_SIZE) -> int:
         """
         This counts how many time the pattern appears
         in the string.
@@ -140,10 +137,15 @@ class BetterString(str):
 
         **You can use regex**
         """
-        return len(re.findall(str(pattern), self.string))
+        if end == "fs":
+            end = len(self.string)-1
+        return len(re.findall(str(pattern), self.string[start:end]))
+
+    def replace(self, old, new, count=1):
+        return BetterString(self.string.replace(old, new, count))
 
     # Magic methods
-    def __getitem__(self, item: int or slice) -> str or list:
+    def __getitem__(self, item: int or slice):
         """
         item has to be int or slice
         if it is an str it will try to convert the str into an int
@@ -171,20 +173,12 @@ class BetterString(str):
         elif isinstance(item, str):
             raise TypeError("String indices must be integers!")
 
-        return ret
+        return BetterString(ret)
 
     def __call__(self) -> Exception:
         raise StringNotCallable()
 
     def __repr__(self) -> str:
-        ret = f"BetterStrings(inp='{self.string}'"
+        ret = f"BetterStrings('{self.string}')"
 
-        for item in self.kwargs:
-            if isinstance(self.kwargs[item], str):
-                ret += f", {item}='{self.kwargs[item]}'"
-            else:
-                ret += f", {item}={self.kwargs[item]}"
-
-        ret += ")"
-
-        return ret
+        return BetterString(ret)
