@@ -1,7 +1,7 @@
 # Docs
 Some arg names are a bit weird because I don't know how to name them   
 
-##List of Features:   
+## List of Features:   
 [upper](#upper)   
 [lower](#lower)     
 [to_list](#to_list)  
