@@ -30,8 +30,6 @@ class BetterString(str):
         Better Upper function. You can
         choose how many characters will
         be upper size
-
-        :param size: amount of characters that will be replaced with the upper sized version of that char
         """
         lower_string = ""
         if size == "fs":
@@ -141,8 +139,6 @@ class BetterString(str):
         will be automatically converted
 
         **You can use regex**
-
-        :param pattern: regex pattern or normal string
         """
         return len(re.findall(str(pattern), self.string))
 
