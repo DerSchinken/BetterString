@@ -34,7 +34,10 @@ class BetterString(str):
         if size == "fs":
             size = len(self.string) - 1
         elif isinstance(size, str):
-            raise TypeError("Size has to be of type Integer")
+            try:
+                size = int(size)
+            except ValueError:
+                raise TypeError("Size has to be of type Integer")
 
         if size > len(self.string) - 1:
             raise ValueError(f"Size of {size} is to big!")
@@ -58,7 +61,10 @@ class BetterString(str):
         if size == "fs":
             size = len(self.string)-1
         elif isinstance(size, str):
-            raise TypeError("Size has to be of type Integer")
+            try:
+                size = int(size)
+            except ValueError:
+                raise TypeError("Size has to be of type Integer") from None
 
         if size > len(self.string)-1:
             raise ValueError(f"Size of {size} is to big!")
@@ -126,7 +132,7 @@ class BetterString(str):
         :param bold: If the text should be bold
         :param underline: If the text should be underlined
         """
-        return BetterString(colorize(self.string, color, bold, underline))
+        return BetterString(colorize(self.string, str(color), bold, underline))
 
     def count(self, pattern: str, start: int = 0, end: int = FULL_SIZE) -> int:
         """
@@ -141,7 +147,7 @@ class BetterString(str):
             end = len(self.string)-1
         return len(re.findall(str(pattern), self.string[start:end]))
 
-    def replace(self, old, new, count=1):
+    def replace(self, old, new="", count=-1):
         """
         Return a copy with all occurrences of substring old replaced by new.
 
@@ -152,7 +158,7 @@ class BetterString(str):
         If the optional argument count is given, only the first count occurrences are
         replaced.
         """
-        return BetterString(self.string.replace(old, new, count))
+        return BetterString(self.string.replace(str(old), str(new), count))
 
     def capitalize(self, /):
         """
@@ -174,7 +180,7 @@ class BetterString(str):
         Return S centered in a Unicode string of length width.
         Padding is done using the specified fill character (default is a space)
         """
-        ret = self.string.center(width, fillchar)
+        ret = self.string.center(int(width), str(fillchar))
         return BetterString(ret)
 
     def expandtabs(self, tabsize=8, /):
@@ -182,7 +188,7 @@ class BetterString(str):
         Return a copy of S where all tab characters are expanded using spaces.
         If tabsize is not given, a tab size of 8 characters is assumed.
         """
-        ret = self.string.expandtabs(tabsize)
+        ret = self.string.expandtabs(int(tabsize))
         return BetterString(ret)
 
     def format(self, *args, **kwargs):
@@ -216,7 +222,9 @@ class BetterString(str):
         Return S left-justified in a Unicode string of length width.
         Padding is done using the specified fill character (default is a space).
         """
-        ret = self.string.ljust(width)
+        if str(fillchar).lower() == "rickroll":
+            print("Never Gonna Give You Up!")
+        ret = self.string.ljust(int(width), str(fillchar))
         return BetterString(ret)
 
     def lstrip(self, chars=None, /):
@@ -225,7 +233,10 @@ class BetterString(str):
         If chars is given and not None, remove characters in chars instead.
         If chars is a str, it will be converted to unicode before stripping
         """
-        ret = self.string.lstrip(chars)
+        if chars is None:
+            ret = self.string.lstrip(chars)
+        else:
+            ret = self.string.lstrip(str(chars))
         return BetterString(ret)
 
     def rjust(self, width, fillchar=' ', /):
@@ -233,7 +244,7 @@ class BetterString(str):
         Return S right-justified in a Unicode string of length width.
         Padding is done using the specified fill character (default is a space).
         """
-        ret = self.string.rjust(width, fillchar)
+        ret = self.string.rjust(int(width), str(fillchar))
         return BetterString(ret)
 
     def rstrip(self, chars=None, /):
@@ -242,7 +253,10 @@ class BetterString(str):
         If chars is given and not None, remove characters in chars instead.
         If chars is a str, it will be converted to unicode before stripping
         """
-        ret = self.string.rstrip(chars)
+        if chars is None:
+            ret = self.string.rstrip(chars)
+        else:
+            ret = self.string.rstrip(str(chars))
         return BetterString(ret)
 
     def strip(self, chars=None, /):
@@ -251,7 +265,10 @@ class BetterString(str):
         If chars is given and not None, remove characters in chars instead. If chars
          is a str, it will be converted to unicode before stripping
         """
-        ret = self.string.strip(chars)
+        if chars is None:
+            ret = self.string.strip(chars)
+        else:
+            ret = self.string.strip(str(chars))
         return BetterString(ret)
 
     def swapcase(self, /):
@@ -289,7 +306,7 @@ class BetterString(str):
         Pad a numeric string S with zeros on the left, to fill a field of the specified width.
         The string S is never truncated.
         """
-        ret = self.string.zfill(width)
+        ret = self.string.zfill(int(width))
         return BetterString(ret)
 
     # Magic methods
@@ -332,7 +349,7 @@ class BetterString(str):
         return BetterString(ret)
 
     def __add__(self, value, /):
-        ret = self.string.__add__(value)
+        ret = self.string.__add__(str(value))
         return BetterString(ret)
 
     def __getnewargs__(self):
@@ -340,9 +357,9 @@ class BetterString(str):
         return BetterString(ret)
 
     def __mul__(self, value, /):
-        ret = self.string.__mul__(value)
+        ret = self.string.__mul__(int(value))
         return BetterString(ret)
 
     def __rmul__(self, value, /):
-        ret = self.string.__rmul__(value)
+        ret = self.string.__rmul__(int(value))
         return BetterString(ret)
