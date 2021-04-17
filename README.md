@@ -1,6 +1,3 @@
-
-<meta charset="UTF-8">
-
 <!--
 This Readme is from: https://github.com/othneildrew/Best-README-Template
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
