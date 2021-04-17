@@ -6,7 +6,7 @@ with open("README.md", "r") as readme:
 
 setup(
     name="BetterString",
-    version="2.7.5",
+    version="2.7.6",
     # Major version 2
     # Minor version 5
     # Maintenance version 5
@@ -24,10 +24,7 @@ setup(
     ],
     classifiers=[
         'Intended Audience :: Developers',
-        
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
+
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
     ],
