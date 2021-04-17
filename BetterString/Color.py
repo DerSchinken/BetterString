@@ -25,7 +25,7 @@ def colorize(text, color, bold=False, underline=False) -> str:
     Make text underlined
     """
     try:
-        ret = f"{colors[str(color.lower())]}"
+        ret = f"{colors[str(color).lower()]}"
     except KeyError:
         raise ColorNotFoundError(color.lower()) from None
 
