@@ -14,7 +14,7 @@ setup(
     author="DerSchinken (aka DrBumm)",
     description="Like a normal string but with more functionality",
     long_description=long_description,
-    long_description_content_type="text/markdown",
+    long_description_content_type="text/markdown/html",
     packages=find_packages(),
     python_requires=">=3.8",
     url="https://github.com/DrBumm/BetterString",
