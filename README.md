@@ -5,6 +5,11 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+
 
 
 <!-- PROJECT SHIELDS -->
@@ -111,3 +116,16 @@ Contributions are what make the open source community such an amazing place to b
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/DrBumm/repo.svg?style=for-the-badge
+[contributors-url]: https://github.com/DrBumm/BetterString/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/DrBumm/repo.svg?style=for-the-badge
+[forks-url]: https://github.com/DrBumm/BetterString/network/members
+[stars-shield]: https://img.shields.io/github/stars/DrBumm/repo.svg?style=for-the-badge
+[stars-url]: https://github.com/DrBumm/BetterString/stargazers
+[issues-shield]: https://img.shields.io/github/issues/DrBummm/repo.svg?style=for-the-badge
+[issues-url]: https://github.com/DrBumm/BetterString/issues
