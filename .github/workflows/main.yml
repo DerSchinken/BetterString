@@ -1,4 +1,4 @@
-name: scraper-san-juan-gobierno
+name: Tests
 
 on: [push]
 
@@ -21,6 +21,6 @@ jobs:
           pip install -U BetterString
           
       - name: Testing Basics
-        run: python tests/test_basic.py
+        run: python tests/tests_basic.py
       - name: Testing Advanced
-        run: python tests/test_advanced.py
+        run: python tests/tests_advanced.py
