@@ -8,6 +8,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
+[![Python][Python-shield]][Python-url]
 
 
 
@@ -126,3 +127,5 @@ Contributions are what make the open source community such an amazing place to b
 [stars-url]: https://github.com/DrBumm/BetterString/stargazers
 [issues-shield]: https://img.shields.io/github/issues/DrBumm/BetterString?style=for-the-badge
 [issues-url]: https://github.com/DrBumm/BetterString/issues
+[python-shield]: https://img.shields.io/badge/Python-%3E%3D3.8-informational
+[python-url]: https://python.org/
