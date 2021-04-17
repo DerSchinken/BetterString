@@ -6,7 +6,7 @@ with open("README.md", "r") as readme:
 
 setup(
     name="BetterString",
-    version="2.5.5",
+    version="2.6.0",
     # Major version 2
     # Minor version 5
     # Maintenance version 5

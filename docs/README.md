@@ -8,7 +8,7 @@ Some arg names are a bit weird because I don't know how to name them
 [to_dict](#to_dict)   
 [to_int](#to_int)    
 [colorize](#colorize)   
-[count_pattern](#count_pattern)   
+[count](#count)   
 
 ### upper
 Better upper function. You can choose how many characters will be upper size
@@ -16,14 +16,14 @@ Better upper function. You can choose how many characters will be upper size
 BetterString.upper(size [optional])
 
 
-`BetterString.upper(size: int=FULL_SIZE) -> str`
+`BetterString.upper(size: int=FULL_SIZE) -> BetterString`
 
 ### lower
 Better lower function. You can choose how many characters will be upper size
 
 BetterString.lower(size [optional])
 
-`BetterString.lower(size: int=FULL_SIZE) -> str`
+`BetterString.lower(size: int=FULL_SIZE) -> BetterString`
 
 ### to_list
 Converts your string into a list or a tuple!   
@@ -54,9 +54,9 @@ Available colors: "blue", "cyan", "green", "orange", "red"
 
 BetterString.colorize(color, bold [optional], underline [optional])     
 
-`BetterString.colorize(color: str, bold: bool = False, underline: bool = False) -> str`   
+`BetterString.colorize(color: str, bold: bool = False, underline: bool = False) -> BetterString`   
 
-### count_pattern
+### count
 This counts how many times the pattern appears in the string.    
 The pattern has to be a str if it is not it will be automatically converted    
 **You can use regex**

@@ -25,3 +25,6 @@ print(test_string.to_int())
 test_string = BetterString("{} String")
 print(test_string.format("Test"))
 print(test_string.join(["t", "e", "s", "t"]))
+
+test_string = BetterString("{test} {test} {} String")
+print(test_string.format("tessst", test="Test"))

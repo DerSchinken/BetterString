@@ -2,8 +2,8 @@ from .Exceptions import *
 from .Color import *
 import re
 
-
 FULL_SIZE = "fs"
+
 BLUE = "blue"
 CYAN = "cyan"
 GREEN = "green"
@@ -142,7 +142,155 @@ class BetterString(str):
         return len(re.findall(str(pattern), self.string[start:end]))
 
     def replace(self, old, new, count=1):
+        """
+        Return a copy with all occurrences of substring old replaced by new.
+
+        count
+        Maximum number of occurrences to replace.
+        -1 (the default value) means replace all occurrences.
+
+        If the optional argument count is given, only the first count occurrences are
+        replaced.
+        """
         return BetterString(self.string.replace(old, new, count))
+
+    def capitalize(self, /):
+        """
+        Return a capitalized version of S, i.e. make the first
+        character have upper case and the rest lower case.
+        """
+        ret = self.string.capitalize()
+        return BetterString(ret)
+
+    def casefold(self, /):
+        """
+        Return a version of the string suitable for caseless comparisons.
+        """
+        ret = self.string.casefold()
+        return BetterString(ret)
+
+    def center(self, width, fillchar=' ', /):
+        """
+        Return S centered in a Unicode string of length width.
+        Padding is done using the specified fill character (default is a space)
+        """
+        ret = self.string.center(width, fillchar)
+        return BetterString(ret)
+
+    def expandtabs(self, tabsize=8, /):
+        """
+        Return a copy of S where all tab characters are expanded using spaces.
+        If tabsize is not given, a tab size of 8 characters is assumed.
+        """
+        ret = self.string.expandtabs(tabsize)
+        return BetterString(ret)
+
+    def format(self, *args, **kwargs):
+        """
+        Return a formatted version of S, using substitutions from args and kwargs.
+        The substitutions are identified by braces ('{' and '}').
+        """
+        ret = self.string.format(*args, **kwargs)
+        return ret
+
+    def format_map(self, mapping, /):
+        """
+        Return a formatted version of S, using substitutions from mapping.
+        The substitutions are identified by braces ('{' and '}').
+        """
+        ret = self.string.format_map(mapping)
+        return BetterString(ret)
+
+    def join(self, iterable, /):
+        """
+        Concatenate any number of strings.
+
+        The string whose method is called is inserted in between each given string.
+        The result is returned as a new string.
+        """
+        ret = self.string.join(iterable)
+        return BetterString(ret)
+
+    def ljust(self, width, fillchar=' ', /):
+        """
+        Return S left-justified in a Unicode string of length width.
+        Padding is done using the specified fill character (default is a space).
+        """
+        ret = self.string.ljust(width)
+        return BetterString(ret)
+
+    def lstrip(self, chars=None, /):
+        """
+        Return a copy of the string S with leading whitespace removed.
+        If chars is given and not None, remove characters in chars instead.
+        If chars is a str, it will be converted to unicode before stripping
+        """
+        ret = self.string.lstrip(chars)
+        return BetterString(ret)
+
+    def rjust(self, width, fillchar=' ', /):
+        """
+        Return S right-justified in a Unicode string of length width.
+        Padding is done using the specified fill character (default is a space).
+        """
+        ret = self.string.rjust(width, fillchar)
+        return BetterString(ret)
+
+    def rstrip(self, chars=None, /):
+        """
+        Return a copy of the string S with trailing whitespace removed.
+        If chars is given and not None, remove characters in chars instead.
+        If chars is a str, it will be converted to unicode before stripping
+        """
+        ret = self.string.rstrip(chars)
+        return BetterString(ret)
+
+    def strip(self, chars=None, /):
+        """
+        Return a copy of the string S with leading and trailing whitespace removed.
+        If chars is given and not None, remove characters in chars instead. If chars
+         is a str, it will be converted to unicode before stripping
+        """
+        ret = self.string.strip(chars)
+        return BetterString(ret)
+
+    def swapcase(self, /):
+        """
+        Return a copy of S with uppercase characters converted to lowercase and vice versa.
+        """
+        ret = self.string.swapcase()
+        return BetterString(ret)
+
+    def title(self, /):
+        """
+        Return a titlecased version of S, i.e. words start with title case characters, all
+        remaining cased characters have lower case.
+        """
+        ret = self.string.title()
+        return BetterString(ret)
+
+    def translate(self, table, /):
+        """
+        Replace each character in the string using the given translation table.
+
+        table
+            Translation table, which must be a mapping of Unicode ordinals to
+            Unicode ordinals, strings, or None.
+
+        The table must implement lookup/indexing via __getitem__, for instance a
+        dictionary or list.  If this operation raises LookupError, the character is
+        left untouched.  Characters mapped to None are deleted.
+        """
+        ret = self.string.translate(table)
+        return BetterString(ret)
+
+    def zfill(self, width, /):
+        """
+        Pad a numeric string S with zeros on the left, to fill a field of the specified width.
+        The string S is never truncated.
+        """
+        ret = self.string.zfill(width)
+        return BetterString(ret)
 
     # Magic methods
     def __getitem__(self, item: int or slice):
@@ -178,7 +326,23 @@ class BetterString(str):
     def __call__(self) -> Exception:
         raise StringNotCallable()
 
-    def __repr__(self) -> str:
+    def __repr__(self):
         ret = f"BetterStrings('{self.string}')"
 
+        return BetterString(ret)
+
+    def __add__(self, value, /):
+        ret = self.string.__add__(value)
+        return BetterString(ret)
+
+    def __getnewargs__(self):
+        ret = self.string.__getnewargs__()
+        return BetterString(ret)
+
+    def __mul__(self, value, /):
+        ret = self.string.__mul__(value)
+        return BetterString(ret)
+
+    def __rmul__(self, value, /):
+        ret = self.string.__rmul__(value)
         return BetterString(ret)
