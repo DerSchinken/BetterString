@@ -5,11 +5,12 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
+<p align="center">
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![Python][Python-shield]][Python-url]
-
+</p>
 
 
 <!-- PROJECT SHIELDS -->
