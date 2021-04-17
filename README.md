@@ -120,9 +120,9 @@ Contributions are what make the open source community such an amazing place to b
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[forks-shield]: https://img.shields.io/github/forks/DrBumm/BetterString
+[forks-shield]: https://img.shields.io/github/forks/DrBumm/BetterString?style=for-the-badge
 [forks-url]: https://github.com/DrBumm/BetterString/network/members
-[stars-shield]: https://img.shields.io/github/stars/DrBumm/BetterString
+[stars-shield]: https://img.shields.io/github/stars/DrBumm/BetterString?style=for-the-badge
 [stars-url]: https://github.com/DrBumm/BetterString/stargazers
-[issues-shield]: https://img.shields.io/github/issues/DrBumm/BetterString
+[issues-shield]: https://img.shields.io/github/issues/DrBumm/BetterString?style=for-the-badge
 [issues-url]: https://github.com/DrBumm/BetterString/issues
