@@ -99,7 +99,7 @@ If That still didnt work install pip or install a supported python version
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Go to the [Documentation](https://example.com)
+Go to the [Documentation](https://github.com/DrBumm/BetterString/blob/main/docs/README.md)
 
 
 
