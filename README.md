@@ -121,11 +121,11 @@ Contributions are what make the open source community such an amazing place to b
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/DrBumm/repo.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/issues/DrBumm/BetterString
 [contributors-url]: https://github.com/DrBumm/BetterString/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/DrBumm/repo.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/DrBumm/BetterString
 [forks-url]: https://github.com/DrBumm/BetterString/network/members
-[stars-shield]: https://img.shields.io/github/stars/DrBumm/repo.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/DrBumm/BetterString
 [stars-url]: https://github.com/DrBumm/BetterString/stargazers
 [issues-shield]: https://img.shields.io/github/issues/DrBummm/repo.svg?style=for-the-badge
 [issues-url]: https://github.com/DrBumm/BetterString/issues
