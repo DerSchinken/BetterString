@@ -12,3 +12,4 @@ if possible
 [to_int](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/to_int.md)    
 [colorize](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/colorize.md)   
 [count](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/count.md)   
+[replace](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/replace.md)
