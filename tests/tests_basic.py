@@ -1,7 +1,7 @@
 from BetterString import *
 
 # Basic Tests
-#
+# test
 
 test_string = BetterString("This is a Better String")
 
