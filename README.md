@@ -81,7 +81,6 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
@@ -97,7 +96,7 @@ If That still didnt work install pip or install a supported python version
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
+After Installing import BetterStrings and you can use it! For more information:    
 Go to the [Documentation](https://github.com/DrBumm/BetterString/blob/main/docs/README.md)
 
 
