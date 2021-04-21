@@ -32,3 +32,4 @@ setup(
         'Programming Language :: Python :: 3.9',
     ],
 )
+#  https://drbumm.github.io/BetterString/

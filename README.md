@@ -6,6 +6,7 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
+<!--
 <p align="center">
 
 [![Forks][forks-shield]][forks-url]
@@ -13,7 +14,43 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
 [![Issues][issues-shield]][issues-url]
 [![Python][Python-shield]][Python-url]
 </p>
+-->
+<div class="grid-container">
+<div class="Header">
+<p align="center">
 
+<a href="https://github.com/DrBumm/BetterString/network/members"><img src="https://img.shields.io/github/forks/DrBumm/BetterString?style=for-the-badge" alt="Forks"></a>
+<a href="https://github.com/DrBumm/BetterString/stargazers"><img src="https://img.shields.io/github/stars/DrBumm/BetterString?style=for-the-badge" alt="Stargazers"></a>
+<a href="https://github.com/DrBumm/BetterString/issues"><img src="https://img.shields.io/github/issues/DrBumm/BetterString?style=for-the-badge" alt="Issues"></a>
+<a href="https://python.org/"><img src="https://img.shields.io/badge/Python-%3E%3D3.8-informational?style=for-the-badge&amp;logo=appveyor" alt="Python"></a>
+</p>
+
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+<!-- PROJECT LOGO -->
+<p align="center">
+<h3 align="center">BetterString</h3>
+<p align="center">
+Like a normal string but with more functionality
+<br />
+<a href="https://github.com/DrBumm/BetterString/blob/main/docs/README.md"><strong>Explore the docs »</strong></a>
+<br />
+<br />
+<a href="https://github.com/DrBumm/BetterString/issues">Report Bug</a>
+·
+<a href="https://github.com/DrBumm/BetterString/issues">Request Feature</a>
+<br />
+<a href="https://github.com/DrBumm/BetterString/">View source code</a>
+</p>
+</p>
+</div>
 
 <!-- PROJECT SHIELDS -->
 <!--
