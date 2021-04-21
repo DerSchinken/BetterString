@@ -6,10 +6,10 @@ with open("README.md", "r") as readme:
 
 setup(
     name="BetterString",
-    version="2.8.0",
+    version="2.8.11",
     # Major version 2
     # Minor version 8
-    # Maintenance version 0
+    # Maintenance version 11
 
     author="DerSchinken (aka DrBumm)",
     description="Like a normal string but with more functionality",
@@ -17,7 +17,7 @@ setup(
     long_description_content_type="text/markdown",
     packages=find_packages(),
     python_requires=">=3.8",
-    url="https://drbumm.github.io/BetterString/",
+    url="https://github.com/DrBumm/BetterString",
     keyword=[
         "Better String",
         "String",

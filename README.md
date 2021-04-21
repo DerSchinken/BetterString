@@ -38,6 +38,8 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
     <a href="https://github.com/DrBumm/BetterString/issues">Report Bug</a>
     ·
     <a href="https://github.com/DrBumm/BetterString/issues">Request Feature</a>
+    <br />
+    <a href="https://github.com/DrBumm/BetterString/">View source code</a>
   </p>
 </p>
 
