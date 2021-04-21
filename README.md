@@ -81,24 +81,24 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+<h2> About The Project </h2>
 
 
-### Built With
+<h3> Built With </h3>
 
 * [Python](https://python.org/)
 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+<h2> Getting Started </h2>
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+<h3> Prerequisites </h3>
 Python >= 3.6
 
-### Installation
+<h3> Installation </h3>
 1. Open a terminal
 2. `pip install BetterString`   
 If 2. didnt work try:  
@@ -107,21 +107,21 @@ If 2. didnt work try:
 If That still didnt work install pip or install a supported python version
 
 <!-- USAGE EXAMPLES -->
-## Usage
+<h2> Usage </h2>
 After Installing import BetterStrings and you can use it! For more information:    
 Go to the [Documentation](https://github.com/DrBumm/BetterString/blob/main/docs/README.md)
 
 
 
 <!-- ROADMAP -->
-## Roadmap
+<h2> Roadmap </h2>
 
 See the [open issues](https://github.com/DrBumm/BetterString/issues) for a list of proposed features (and known issues).
 
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+<h2> Contributing </h2>
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
