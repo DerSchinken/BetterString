@@ -23,7 +23,6 @@ class BetterString(str):
 
         self.string = str(inp)
 
-    # Upper / Lower
     def lower(self, size: int or str = FULL_SIZE):
         """
         Better Upper function. You can
@@ -78,8 +77,6 @@ class BetterString(str):
 
         return BetterString(upper_string)
 
-    # Convert Str to type ...
-    # I will not cover all types!
     def to_list(self) -> list or tuple:
         """
         Converts your string into a list or a tuple
@@ -88,11 +85,11 @@ class BetterString(str):
         if not it will return every character in a list
         """
         try:
-            liste = eval(self.string)
+            list_ = eval(self.string)
         except SyntaxError:
-            liste = list(self.string)
+            list_ = list(self.string)
 
-        return liste
+        return list_
 
     def to_int(self) -> int:
         """
@@ -116,7 +113,6 @@ class BetterString(str):
         except TypeError:
             raise CannotConvertToError("dict") from None
 
-    # Extras
     def colorize(self, color: str, bold: bool = False, underline: bool = False):
         """
         Colorizes the string with the given color
@@ -147,9 +143,11 @@ class BetterString(str):
             end = len(self.string)-1
         return len(re.findall(str(pattern), self.string[start:end]))
 
-    def replace(self, old, new="", count=-1):
+    def replace(self, old, new="", count=FULL_SIZE):
         """
         Return a copy with all occurrences of substring old replaced by new.
+
+        **You can use regex**
 
         count
         Maximum number of occurrences to replace.
@@ -158,9 +156,30 @@ class BetterString(str):
         If the optional argument count is given, only the first count occurrences are
         replaced.
         """
-        return BetterString(self.string.replace(str(old), str(new), count))
+        if count == "fs":
+            count = len(self.string)-1
+        ret = re.sub(str(old), str(new), count)
+        return BetterString(ret)
 
-    def capitalize(self, /):
+    def remove(self, pattern, count=FULL_SIZE):
+        """
+        Return a copy with all occurrences of substring pattern removed
+
+        **You can use regex**
+
+        count
+        Maximum number of occurrences to replace.
+        FULL_SIZE (the default value) means replace all occurrences.
+
+        If the optional argument count is given, only the first count occurrences are
+        replaced.
+        """
+        if count == "fs":
+            count = len(self.string)-1
+        ret = re.sub(str(pattern), "", self.string, count)
+        return ret
+
+    def capitalize(self):
         """
         Return a capitalized version of S, i.e. make the first
         character have upper case and the rest lower case.
@@ -168,14 +187,14 @@ class BetterString(str):
         ret = self.string.capitalize()
         return BetterString(ret)
 
-    def casefold(self, /):
+    def casefold(self):
         """
         Return a version of the string suitable for caseless comparisons.
         """
         ret = self.string.casefold()
         return BetterString(ret)
 
-    def center(self, width, fillchar=' ', /):
+    def center(self, width, fillchar=' '):
         """
         Return S centered in a Unicode string of length width.
         Padding is done using the specified fill character (default is a space)
@@ -183,7 +202,7 @@ class BetterString(str):
         ret = self.string.center(int(width), str(fillchar))
         return BetterString(ret)
 
-    def expandtabs(self, tabsize=8, /):
+    def expandtabs(self, tabsize=8):
         """
         Return a copy of S where all tab characters are expanded using spaces.
         If tabsize is not given, a tab size of 8 characters is assumed.
@@ -199,7 +218,7 @@ class BetterString(str):
         ret = self.string.format(*args, **kwargs)
         return ret
 
-    def format_map(self, mapping, /):
+    def format_map(self, mapping):
         """
         Return a formatted version of S, using substitutions from mapping.
         The substitutions are identified by braces ('{' and '}').
@@ -207,7 +226,7 @@ class BetterString(str):
         ret = self.string.format_map(mapping)
         return BetterString(ret)
 
-    def join(self, iterable, /):
+    def join(self, iterable):
         """
         Concatenate any number of strings.
 
@@ -217,7 +236,7 @@ class BetterString(str):
         ret = self.string.join(iterable)
         return BetterString(ret)
 
-    def ljust(self, width, fillchar=' ', /):
+    def ljust(self, width, fillchar=' '):
         """
         Return S left-justified in a Unicode string of length width.
         Padding is done using the specified fill character (default is a space).
@@ -227,7 +246,7 @@ class BetterString(str):
         ret = self.string.ljust(int(width), str(fillchar))
         return BetterString(ret)
 
-    def lstrip(self, chars=None, /):
+    def lstrip(self, chars=None):
         """
         Return a copy of the string S with leading whitespace removed.
         If chars is given and not None, remove characters in chars instead.
@@ -239,7 +258,7 @@ class BetterString(str):
             ret = self.string.lstrip(str(chars))
         return BetterString(ret)
 
-    def rjust(self, width, fillchar=' ', /):
+    def rjust(self, width, fillchar=' '):
         """
         Return S right-justified in a Unicode string of length width.
         Padding is done using the specified fill character (default is a space).
@@ -247,7 +266,7 @@ class BetterString(str):
         ret = self.string.rjust(int(width), str(fillchar))
         return BetterString(ret)
 
-    def rstrip(self, chars=None, /):
+    def rstrip(self, chars=None):
         """
         Return a copy of the string S with trailing whitespace removed.
         If chars is given and not None, remove characters in chars instead.
@@ -259,7 +278,7 @@ class BetterString(str):
             ret = self.string.rstrip(str(chars))
         return BetterString(ret)
 
-    def strip(self, chars=None, /):
+    def strip(self, chars=None):
         """
         Return a copy of the string S with leading and trailing whitespace removed.
         If chars is given and not None, remove characters in chars instead. If chars
@@ -271,14 +290,14 @@ class BetterString(str):
             ret = self.string.strip(str(chars))
         return BetterString(ret)
 
-    def swapcase(self, /):
+    def swapcase(self):
         """
         Return a copy of S with uppercase characters converted to lowercase and vice versa.
         """
         ret = self.string.swapcase()
         return BetterString(ret)
 
-    def title(self, /):
+    def title(self):
         """
         Return a titlecased version of S, i.e. words start with title case characters, all
         remaining cased characters have lower case.
@@ -286,7 +305,7 @@ class BetterString(str):
         ret = self.string.title()
         return BetterString(ret)
 
-    def translate(self, table, /):
+    def translate(self, table):
         """
         Replace each character in the string using the given translation table.
 
@@ -301,7 +320,7 @@ class BetterString(str):
         ret = self.string.translate(table)
         return BetterString(ret)
 
-    def zfill(self, width, /):
+    def zfill(self, width):
         """
         Pad a numeric string S with zeros on the left, to fill a field of the specified width.
         The string S is never truncated.
@@ -348,7 +367,7 @@ class BetterString(str):
 
         return BetterString(ret)
 
-    def __add__(self, value, /):
+    def __add__(self, value):
         ret = self.string.__add__(str(value))
         return BetterString(ret)
 
@@ -356,10 +375,12 @@ class BetterString(str):
         ret = self.string.__getnewargs__()
         return BetterString(ret)
 
-    def __mul__(self, value, /):
+    def __mul__(self, value):
         ret = self.string.__mul__(int(value))
         return BetterString(ret)
 
-    def __rmul__(self, value, /):
+    def __rmul__(self, value):
         ret = self.string.__rmul__(int(value))
         return BetterString(ret)
+
+# Discord: Peter | Btw. SCHINKEN!!1!!11#0930

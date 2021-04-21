@@ -2,29 +2,32 @@ from setuptools import setup, find_packages
 
 # Get Long Description
 with open("README.md", "r") as readme:
-    long_description = readme.read()
+    long_description = readme.read().replace("Â", "")
 
 setup(
     name="BetterString",
-    version="2.8.11",
+    version="2.9.0",
     # Major version 2
-    # Minor version 8
-    # Maintenance version 11
+    # Minor version 9
+    # Maintenance version 0
 
     author="DerSchinken (aka DrBumm)",
     description="Like a normal string but with more functionality",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    python_requires=">=3.8",
+    python_requires=">=3.6",
     url="https://github.com/DrBumm/BetterString",
     keyword=[
         "Better String",
         "String",
+        "BetterString",
     ],
     classifiers=[
         'Intended Audience :: Developers',
 
+        "Programming Language :: Python :: 3.6",
+        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
     ],
