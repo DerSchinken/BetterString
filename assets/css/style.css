@@ -41,7 +41,7 @@ details[open] summary ~ * { animation: sweep_in .5s ease-in-out; }
 .grid-container {
 	display: grid;
 	grid-template-columns: 0.8fr 1.2fr 1fr 1fr;
-	grid-template-rows: 0.2fr 2.1fr 0.3fr;
+	grid-template-rows: 0.1fr 2.1fr 0.3fr;
 	grid-template-areas:
 		"Header Header Header Header"
 		"Menu Main Main Main"
