@@ -6,10 +6,10 @@ with open("README.md", "r") as readme:
 
 setup(
     name="BetterString",
-    version="2.9.2",
+    version="2.9.4",
     # Major version 2
     # Minor version 9
-    # Maintenance version 2
+    # Maintenance version 3
 
     author="DerSchinken (aka DrBumm)",
     description="Like a normal string but with more functionality",
