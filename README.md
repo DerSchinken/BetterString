@@ -73,7 +73,6 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
   </ol>
 </details>
@@ -101,29 +100,20 @@ Python >= 3.6
 ### Installation
 1. Open a terminal
 2. `pip install BetterString`   
-If 2. didnt work try:  
+If it doesn't work, try:  
    `pip3 install BetterString`
    
-If That still didnt work install pip or install a supported python version
+If it still doesn't work install pip or install a supported python version
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 After Installing import BetterStrings and you can use it! For more information:    
 Go to the [Documentation](https://github.com/DrBumm/BetterString/blob/main/docs/README.md)
 
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/DrBumm/BetterString/issues) for a list of proposed features (and known issues).
-
-
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what makes the open source community such an amazing place to learn, inspire and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
