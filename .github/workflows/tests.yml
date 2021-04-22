@@ -18,7 +18,8 @@ jobs:
       - name: install python packages
         run: |
           python -m pip install --upgrade pip
-          pip install -U BetterString
+          pip uninstall BetterString
+          pip install --no-cache-dir BetterString
           
       - name: Testing Basics
         run: python3 tests/tests_basic.py
