@@ -2,6 +2,8 @@ from .Exceptions import *
 from .Color import *
 import re
 
+# Important: Always put out new version on PyPI before pushing to github
+
 FULL_SIZE = "fs"
 
 BLUE = "blue"
