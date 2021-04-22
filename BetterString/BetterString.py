@@ -130,7 +130,7 @@ class BetterString(str):
         """
         return BetterString(colorize(self.string, str(color), bold, underline))
 
-    def count(self, pattern: str, start: int = 0, end: int = FULL_SIZE) -> int:
+    def count(self, pattern: str, start: int = 0, end: int = FULL_SIZE, regex=False) -> int:
         """
         This counts how many time the pattern appears
         in the string.
@@ -141,9 +141,13 @@ class BetterString(str):
         """
         if end == "fs":
             end = len(self.string)-1
-        return len(re.findall(str(pattern), self.string[start:end]))
+        if regex:
+            ret = len(re.findall(str(pattern), self.string[start:end]))
+        else:
+            ret = self.string.count(pattern, start, end)
+        return ret
 
-    def replace(self, old, new="", count=FULL_SIZE):
+    def replace(self, old, new="", count=FULL_SIZE, regex=False):
         """
         Return a copy with all occurrences of substring old replaced by new.
 
@@ -158,10 +162,13 @@ class BetterString(str):
         """
         if count == "fs":
             count = len(self.string)-1
-        ret = re.sub(str(old), str(new), count)
+        if regex:
+            ret = re.sub(old, new, self.string, count)
+        else:
+            ret = self.string.replace(old, new, count)
         return BetterString(ret)
 
-    def remove(self, pattern, count=FULL_SIZE):
+    def remove(self, pattern, count=FULL_SIZE, regex=False):
         """
         Return a copy with all occurrences of substring pattern removed
 
@@ -176,7 +183,10 @@ class BetterString(str):
         """
         if count == "fs":
             count = len(self.string)-1
-        ret = re.sub(str(pattern), "", self.string, count)
+        if regex:
+            ret = re.sub(str(pattern), "", self.string, count)
+        else:
+            ret = self.string.replace(pattern, "", count)
         return ret
 
     def capitalize(self):

@@ -14,6 +14,23 @@ print(test_string.colorize(BLUE))
 print(test_string[4:], test_string[3], test_string["4"])
 print(repr(test_string))
 
+print(test_string.remove("e"))
+print(test_string.remove("e", count=3))
+print(test_string.remove("\\w", regex=True))
+print(test_string.remove("\\w", regex=True, count=6))
+
+print(test_string.replace("e"))
+print(test_string.replace("e", count=3))
+print(test_string.replace("\\w", regex=True))
+print(test_string.replace("\\w", regex=True, count=6))
+print(test_string.replace("e", "t"))
+print(test_string.replace("e", "t", count=3))
+print(test_string.replace("\\w", "t", regex=True))
+print(test_string.replace("\\w", "t", regex=True, count=6))
+
+print(test_string.count("e"))
+print(test_string.count("\\w", regex=True))
+
 test_string = BetterString("['This represents a list', 'Test list']")
 print(test_string.to_list())
 
