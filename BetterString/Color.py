@@ -17,6 +17,9 @@ class colors:
     YELLOW = '\033[43'
 
 
+colors = colors()
+
+
 class background_colors:
     BLACK = '\033[93m'
     RED = '\033[41m'
@@ -26,6 +29,9 @@ class background_colors:
     PURPLE = '\033[35m'
     CYAN = '\033[46m'
     WHITE = '\033[47m'
+
+
+background_colors = background_colors()
 
 
 class special:
@@ -100,13 +106,13 @@ def colorize(**kwargs) -> str:
     ret = text[:start]
     if color:
         try:
-            ret += eval(f"colors.{color.upper()}")
+            ret += colors.__getattribute__(color.upper())
         except AttributeError:
             raise ColorNotFoundError(color.lower()) from None
 
     if bg:
         try:
-            ret += eval(f"background_colors.{bg.upper()}")
+            ret += background_colors.__getattribute__(bg.upper())
         except AttributeError:
             raise BackgroundColorNotFound(bg.lower()) from None
 
