@@ -1,5 +1,5 @@
 # Docs
-Some arg names are a bit weird because I don't know how to name them   
+Some args have slightly weird names because I don't know better ones.      
 
 ## Features:   
 [upper](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/upper.md)   

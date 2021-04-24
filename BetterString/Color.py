@@ -1,62 +1,122 @@
 from .Exceptions import *
 
 
-class bcolors:
+class colors:
     """
     Usage:
-    bcolor.color_you_want + "your string" + bcolor.ENDC
+    tcolors.color_you_want + "your string" + tcolors.ENDC
     """
+    BLUE = '\033[94m'
+    CYAN = '\033[96m'
+    GREEN = '\033[92m'
+    ORANGE = '\033[93m'
+    RED = '\033[91m'
+    BLACK = '\033[30m'
+    PURPLE = '\033[35m'
+    WHITE = '\033[37m'
+    YELLOW = '\033[43'
+
+
+class background_colors:
+    BLACK = '\033[93m'
+    RED = '\033[41m'
+    GREEN = '\033[42m'
+    YELLOW = '\033[43m'
+    BLUE = '\033[44m'
+    PURPLE = '\033[35m'
+    CYAN = '\033[46m'
+    WHITE = '\033[47m'
+
+
+class special:
     HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
 
-def colorize(text, color, bold=False, underline=False) -> str:
+def colorize(**kwargs) -> str:
     """
     Takes the text and colorizes it.
     Additional features:
+    Change background
     Make text bold
     Make text underlined
     """
+    # Get text
     try:
-        ret = f"{colors[str(color).lower()]}"
+        text = kwargs["text"]
+        if not isinstance(text, str):
+            raise TypeError("'text' has to be of type 'str'")
     except KeyError:
-        raise ColorNotFoundError(color.lower()) from None
+        raise TypeError("You need to give a text!")
+
+    # Get color
+    try:
+        color = kwargs["color"]
+    except KeyError:
+        color = None
+
+    # Get background or bg (short for background)
+    try:
+        bg = kwargs["background"]
+    except KeyError:
+        try:
+            bg = kwargs["bg"]
+        except KeyError:
+            bg = None
+
+    # Get bold
+    try:
+        bold = kwargs["bold"]
+        if not isinstance(bold, bool):
+            raise TypeError("'bold' has to be of type 'bool'!")
+    except KeyError:
+        bold = False
+
+    # Get underline
+    try:
+        underline = kwargs["underline"]
+        if not isinstance(underline, bool):
+            raise TypeError("'underline' has to be of type 'bool'!")
+    except KeyError:
+        underline = False
+
+    # Get start
+    try:
+        start = int(kwargs["start"])
+    except KeyError:
+        start = 0
+    except TypeError:
+        raise TypeError("'start' has to be of type 'int'!") from None
+    # Get end
+    try:
+        end = int(kwargs["end"])
+    except KeyError:
+        end = len(text)
+    except TypeError:
+        raise TypeError("'end' has to be of type 'int'!") from None
+
+    ret = text[:start]
+    if color:
+        try:
+            ret += eval(f"colors.{color.upper()}")
+        except AttributeError:
+            raise ColorNotFoundError(color.lower()) from None
+
+    if bg:
+        try:
+            ret += eval(f"background_colors.{bg.upper()}")
+        except AttributeError:
+            raise BackgroundColorNotFound(bg.lower()) from None
 
     if bold:
-        ret += special['bold']
+        ret += special.BOLD
     if underline:
-        ret += special['underline']
+        ret += special.UNDERLINE
 
-    ret += str(text) + special['endline']
+    ret += text[start:end]
+    ret += special.ENDC
+    ret += text[end:]
 
     return ret
-
-
-colors = {"blue": bcolors.OKBLUE,
-          "cyan": bcolors.OKCYAN,
-          "green": bcolors.OKGREEN,
-          "orange":  bcolors.WARNING,
-          "red": bcolors.FAIL}
-
-special = {"endline": bcolors.ENDC,
-           "bold": bcolors.BOLD,
-           "underline": bcolors.UNDERLINE}
-
-
-# Test
-if __name__ == "__main__":
-    print(colorize("Test Text", "blue", True, True))
-
-    try:
-        colorize("Test Text", "wrong color 123", False, True)
-    except ColorNotFoundError as e:
-        print(e)
-
-    colorize("test text", "tsesdgsd")

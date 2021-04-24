@@ -18,6 +18,11 @@ class ColorNotFoundError(Exception):
         super().__init__(f"Color '{color}' not found!")
 
 
+class BackgroundColorNotFound(Exception):
+    def __init__(self, color):
+        super().__init__(f"Background color '{color}' not found!")
+
+
 class CannotConvertToError(Exception):
     def __init__(self, type):
         super().__init__(f"Cannot convert the string to type {type}!")

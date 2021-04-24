@@ -6,11 +6,26 @@ import re
 
 FULL_SIZE = "fs"
 
-BLUE = "blue"
-CYAN = "cyan"
-GREEN = "green"
-ORANGE = "orange"
-RED = "red"
+# Colors
+BLUE = 'BLUE'
+CYAN = 'CYAN'
+GREEN = 'GREEN'
+ORANGE = 'ORANGE'
+RED = 'RED'
+BLACK = 'BLACK'
+PURPLE = 'PURPLE'
+WHITE = 'WHITE'
+YELLOW = 'YELLOW'
+
+# Background Colors
+BLACK_BG = 'BLACK'
+RED_BG = 'RED'
+GREEN_BG = 'GREEN'
+YELLOW_BG = 'YELLOW'
+BLUE_BG = 'BLUE'
+PURPLE_BG = 'PURPLE'
+CYAN_BG = 'CYAN'
+WHITE_BG = 'WHITE'
 
 
 class BetterString(str):
@@ -115,22 +130,42 @@ class BetterString(str):
         except TypeError:
             raise CannotConvertToError("dict") from None
 
-    def colorize(self, color, bold: bool = False, underline: bool = False):
+    def colorize(self, color, bg=None, bold=False, underline=False, start=0, end=FULL_SIZE):
         """
         Colorizes the string with the given color
 
-        Available colors:
-        "blue",
-        "cyan",
-        "green",
-        "orange",
-        "red"
+        Available text colors:
+        'BLUE',
+        'CYAN',
+        'GREEN',
+        'ORANGE',
+        'RED',
+        'BLACK',
+        'PURPLE',
+        'WHITE',
+        'YELLOW'
 
-        :param color: Color which the text should have
+        Available background colors:
+        'BLACK',
+        'RED',
+        'GREEN',
+        'YELLOW',
+        'BLUE',
+        'PURPLE',
+        'CYAN',
+        'WHITE'
+
+        :param color: Color of the text
         :param bold: If the text should be bold
         :param underline: If the text should be underlined
+        :param bg: Background color of the text
+        :param start: start of colors and stuff
+        :param end: end of colors and stuff
         """
-        return BetterString(colorize(self.string, str(color), bold, underline))
+        if end == "fs":
+            end = len(self.string)
+
+        return BetterString(colorize(text=self.string, color=color, bold=bold, underline=underline, bg=bg, start=start, end=end))
 
     def count(self, pattern, start: int = 0, end: int = FULL_SIZE, regex: bool = False):
         """
