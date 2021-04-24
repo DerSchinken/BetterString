@@ -10,7 +10,7 @@ Available background colors:
 Or you use the variables from the package:   
 `'BetterString.BLACK_BG', 'BetterString.RED_BG', 'BetterString.GREEN_BG', 'BetterString.YELLOW_BG', 'BetterString.BLUE_BG', 'BetterString.PURPLE_BG', 'BetterString.CYAN_BG', 'BetterString.WHITE_BG'`    
 
-`BetterString.colorize(color, bg [optional],  bold [optional], underline [optional], start [optional], end [optional]) `     
+`BetterString.colorize(color [optional], bg [optional],  bold [optional], underline [optional], start [optional], end [optional]) `     
 _bold_ is default: False   
 _underline_ is default: False   
 _bg_ is default: None   

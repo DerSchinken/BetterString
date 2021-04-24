@@ -130,7 +130,7 @@ class BetterString(str):
         except TypeError:
             raise CannotConvertToError("dict") from None
 
-    def colorize(self, color, bg=None, bold=False, underline=False, start=0, end=FULL_SIZE):
+    def colorize(self, color=None, bg=None, bold=False, underline=False, start=0, end=FULL_SIZE):
         """
         Colorizes the string with the given color
 
