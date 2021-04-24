@@ -1,8 +1,5 @@
 # Docs
-Some arg names are a bit weird because I don't know how to name them   
-You dont have to look for the right type for some funtions     
-they will automatically convert the input to the right type      
-if possible    
+Some args have slightly weird names because I don't know better ones.      
 
 ## Features / Changes (except the type insensitivity):   
 [upper](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/upper.md)   
