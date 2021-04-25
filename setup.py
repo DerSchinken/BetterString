@@ -3,19 +3,23 @@ from setuptools import setup, find_packages
 # Get Long Description
 with open("README.md", "r") as readme:
     long_description = readme.read().replace("Â", "")
+# Get requirements.txt
+with open("requirements.txt", "r") as requirements:
+    reqs = requirements.read().splitlines()
 
 setup(
     name="BetterString",
-    version="2.11.2",
+    version="2.11.3",
     # Major version 2
     # Minor version 11
-    # Maintenance version 2
+    # Maintenance version 3
 
     author="DerSchinken (aka DrBumm)",
     description="Like a normal string but with more functionality",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(),
+    install_requires=reqs,
     python_requires=">=3.6",
     url="https://github.com/DrBumm/BetterString",
     keyword=[
