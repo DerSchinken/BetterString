@@ -4,7 +4,7 @@ Converts your string into an integer
 `BetterString.to_int()`
 
 Example:
-```python
+```python 
 import BetterString
 
 test_string = BetterString.BetterString("1337")

@@ -1,15 +1,18 @@
 ### upper
-Better upper function. You can choose how many characters will be upper size
+Better upper function. You can set start and end
 
-`BetterString.upper(size [optional])`   
-_size_ is default: Full size   
+`BetterString.upper(end [optional], start [optional])`   
+_end_ is default: Full size     
+_start_ is default: 0
 
 Example:
-```python
+```python 
 import BetterString
 
 test_string = BetterString.BetterString("This Is A Test String")
 
 print(test_string.upper())
 print(test_string.upper(6))
+print(test_string.upper(3, 1))
+print(test_string.upper(start=1, end=3))
 ```

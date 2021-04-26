@@ -6,7 +6,7 @@ if not it will return every character of the string in a list
 `BetterString.to_list()`
 
 Example:
-```python
+```python 
 import BetterString
 
 test_string = BetterString.BetterString("This Is A Test String")

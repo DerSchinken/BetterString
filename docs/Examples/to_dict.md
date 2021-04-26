@@ -4,7 +4,7 @@ Converts your string into a dictionary
 `BetterString.to_dict()`
 
 Example:
-```python
+```python 
 import BetterString
 
 test_string = BetterString.BetterString("{'This Is A Test String': 'Test'}")
