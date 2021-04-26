@@ -105,6 +105,8 @@ class BetterString(str):
             list_ = eval(self.string)
         except SyntaxError:
             list_ = list(self.string)
+        except NameError:
+            list_ = list(self.string)
 
         return list_
 
