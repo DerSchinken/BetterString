@@ -2,8 +2,8 @@
 Better upper function. You can set start and end
 
 `BetterString.upper(end [optional], start [optional])`   
-_end_ is default: Full size     
-_start_ is default: 0
+_end_ is default: [size of text]      
+_start_ is default: 0    
 
 Example:
 ```python 

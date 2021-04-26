@@ -5,7 +5,7 @@ You don't have to define new it is now default ""
 
 `BetterString.replace(old, new [optional], count [optional], regex [optional])`    
 new default is: ""     
-count default is: FULL_SIZE (full size of the string)        
+count default is: [size of text]         
 regex default is: False    
 
 Example:

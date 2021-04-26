@@ -5,6 +5,7 @@ import re
 # Important: Always put out new version on PyPI before pushing to github
 
 FULL_SIZE = "fs"
+START = 0
 
 # Colors
 BLUE = 'BLUE'
@@ -40,7 +41,7 @@ class BetterString(str):
 
         self.string = str(inp)
 
-    def lower(self, end=FULL_SIZE, start=0):
+    def lower(self, end=FULL_SIZE, start=START):
         """
         Better Upper function. You can
         choose how many characters will
@@ -75,7 +76,7 @@ class BetterString(str):
 
         return BetterString(lower_string)
 
-    def upper(self, end=FULL_SIZE, start=0):
+    def upper(self, end=FULL_SIZE, start=START):
         """
         Better Upper function. You can
         choose how many characters will
@@ -147,7 +148,7 @@ class BetterString(str):
         except TypeError:
             raise CannotConvertToError("dict") from None
 
-    def colorize(self, color=None, bg=None, bold=False, underline=False, start=0, end=FULL_SIZE):
+    def colorize(self, color=None, bg=None, bold=False, underline=False, start=START, end=FULL_SIZE):
         """
         Colorizes the string with the given color
 
@@ -184,7 +185,7 @@ class BetterString(str):
 
         return BetterString(colorize(text=self.string, color=color, bold=bold, underline=underline, bg=bg, start=start, end=end))
 
-    def count(self, pattern, start: int = 0, end: int = FULL_SIZE, regex: bool = False):
+    def count(self, pattern, start: int = START, end: int = FULL_SIZE, regex: bool = False):
         """
         This counts how many time the pattern appears
         in the string.

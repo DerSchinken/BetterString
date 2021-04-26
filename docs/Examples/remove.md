@@ -3,7 +3,7 @@ Return a copy with all occurrences of substring patter replaced with "".
 **You can use regex**     
  
 `BetterString.remove(pattern, count [optional], regex [optional])`   
-count default is: FULL_SIZE (full size of the string)   
+count default is: [size of text]      
 regex default is: False     
 
   
