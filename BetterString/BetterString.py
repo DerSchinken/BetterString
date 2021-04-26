@@ -40,54 +40,69 @@ class BetterString(str):
 
         self.string = str(inp)
 
-    def lower(self, size=FULL_SIZE):
+    def lower(self, end=FULL_SIZE, start=0):
         """
         Better Upper function. You can
         choose how many characters will
         be upper size
         """
         lower_string = ""
-        if size == "fs":
-            size = len(self.string)
-        elif isinstance(size, str):
+        if end == "fs":
+            end = len(self.string)
+        elif isinstance(end, str):
             try:
-                size = int(size)
+                end = int(end)
             except ValueError:
-                raise TypeError("Size has to be of type Integer")
+                raise TypeError("end has to be of type Int")
 
-        if size > len(self.string):
-            raise ValueError(f"Size of {size} is to big!")
+        if isinstance(start, str):
+            try:
+                start = int(start)
+            except ValueError:
+                raise TypeError("Start has to be of type Int")
 
-        i = 0
-        for i in range(0, size):
-            if i <= size:
+        if end > len(self.string):
+            raise ValueError(f"'end' of {end} is to big!")
+        if start > len(self.string):
+            raise ValueError(f"'start' of {start} is to big")
+
+        i = start
+        for i in range(start, end):
+            if i <= end:
                 lower_string += self.string[i].lower()
 
         lower_string += self.string[i + 1:]
 
         return BetterString(lower_string)
 
-    def upper(self, size=FULL_SIZE):
+    def upper(self, end=FULL_SIZE, start=0):
         """
         Better Upper function. You can
         choose how many characters will
         be upper size
         """
         upper_string = ""
-        if size == "fs":
-            size = len(self.string)
-        elif isinstance(size, str):
+        if end == "fs":
+            end = len(self.string)
+        elif isinstance(end, str):
             try:
-                size = int(size)
+                end = int(end)
             except ValueError:
                 raise TypeError("Size has to be of type Integer") from None
+        if isinstance(start, str):
+            try:
+                start = int(start)
+            except ValueError:
+                raise TypeError("Start has to be of type Int")
 
-        if size > len(self.string):
-            raise ValueError(f"Size of {size} is to big!")
+        if end > len(self.string):
+            raise ValueError(f"Size of {end} is to big!")
+        if start > len(self.string):
+            raise ValueError(f"'start' of {start} is to big")
 
-        i = 0
-        for i in range(0, size):
-            if i <= size:
+        i = start
+        for i in range(start, end):
+            if i <= end:
                 upper_string += self.string[i].upper()
 
         upper_string += self.string[i + 1:]
