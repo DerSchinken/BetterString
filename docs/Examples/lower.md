@@ -14,6 +14,6 @@ test_string = BetterString.BetterString("This Is A Test String")
 
 print(test_string.lower())
 print(test_string.lower(6))
-print(test_string(3, 1))
+print(test_string.lower(3, 1))
 print(test_string.lower(start=1, end=3))
 ```
