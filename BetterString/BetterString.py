@@ -48,14 +48,14 @@ class BetterString(str):
         """
         lower_string = ""
         if size == "fs":
-            size = len(self.string) - 1
+            size = len(self.string)
         elif isinstance(size, str):
             try:
                 size = int(size)
             except ValueError:
                 raise TypeError("Size has to be of type Integer")
 
-        if size > len(self.string) - 1:
+        if size > len(self.string):
             raise ValueError(f"Size of {size} is to big!")
 
         i = 0
@@ -75,14 +75,14 @@ class BetterString(str):
         """
         upper_string = ""
         if size == "fs":
-            size = len(self.string) - 1
+            size = len(self.string)
         elif isinstance(size, str):
             try:
                 size = int(size)
             except ValueError:
                 raise TypeError("Size has to be of type Integer") from None
 
-        if size > len(self.string) - 1:
+        if size > len(self.string):
             raise ValueError(f"Size of {size} is to big!")
 
         i = 0
@@ -177,7 +177,7 @@ class BetterString(str):
         **You can use regex**
         """
         if end == "fs":
-            end = len(self.string) - 1
+            end = len(self.string)
         if regex:
             ret = len(re.findall(str(pattern), self.string[start:end]))
         else:
@@ -198,7 +198,7 @@ class BetterString(str):
         replaced.
         """
         if count == "fs":
-            count = len(self.string) - 1
+            count = len(self.string)
         if regex:
             ret = re.sub(old, new, self.string, count)
         else:
@@ -219,7 +219,7 @@ class BetterString(str):
         replaced.
         """
         if count == "fs":
-            count = len(self.string) - 1
+            count = len(self.string)
         if regex:
             ret = re.sub(str(pattern), "", self.string, count)
         else:
