@@ -1,4 +1,4 @@
-### upper
+### BetterString.upper
 Better upper function. You can set start and end
 
 `BetterString.upper(end [optional], start [optional])`   

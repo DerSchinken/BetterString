@@ -1,4 +1,4 @@
-### replace
+### BetterString.replace
 Return a copy with all occurrences of substring old replaced by new.
 You don't have to define new it is now default ""  
 **You can use regex**   

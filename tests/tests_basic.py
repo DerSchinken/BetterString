@@ -19,6 +19,7 @@ print(test_string.colorize(color=BLUE, bg="yellow", bold=True, underline=True, s
 print(test_string.colorize(color=BLUE, bg="yellow", end=4))
 print(test_string[4:], test_string[3], test_string["4"])
 print(repr(test_string))
+print(test_string.rainbow())
 
 print(test_string.remove("e"))
 print(test_string.remove("e", count=3))

@@ -1,4 +1,5 @@
 from .Exceptions import *
+import random
 
 
 class colors:
@@ -126,3 +127,17 @@ def colorize(**kwargs) -> str:
     ret += text[end:]
 
     return ret
+
+
+def rainbow(text):
+    ret = ""
+    color_list = [colors.CYAN, colors.RED, colors.BLACK, colors.BLUE, colors.GREEN, colors.WHITE, colors.ORANGE, colors.PURPLE, colors.YELLOW]
+    try:
+        i = 0
+        while True:
+            if not text[i] == " ":
+                ret += random.choice(color_list) + text[i]
+            else: ret += " "
+            i += 1
+    except IndexError:
+        return ret + special.ENDC

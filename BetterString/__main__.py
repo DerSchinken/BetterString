@@ -41,6 +41,9 @@ def err(text):
 
 try:
     str_text = sys.argv[1]
+    if str_text == "-h" or str_text == "--help":
+        print_help()
+        exit()
 except IndexError:
     print_help()
     str_text = ""

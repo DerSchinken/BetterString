@@ -1,4 +1,4 @@
-### colorize
+### BetterString.colorize
 Colorizes the string with the given color      
 Available colors:    
 `'BLUE', 'CYAN', 'GREEN', 'ORANGE', 'RED', 'BLACK', 'PURPLE', 'WHITE', 'YELLOW'`            

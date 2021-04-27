@@ -33,3 +33,23 @@ try:
     test_string.colorize("wrong color")
 except ColorNotFoundError as CNFE:
     print(CNFE)
+
+try:
+    test_string.upper(12311231313)
+except ValueError as VE:
+    print(VE)
+
+try:
+    test_string.lower(12311231313)
+except ValueError as VE:
+    print(VE)
+
+try:
+    test_string.upper("asdas1")
+except TypeError as TE:
+    print(TE)
+
+try:
+    test_string.lower("asdas1")
+except TypeError as TE:
+    print(TE)

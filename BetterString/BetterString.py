@@ -185,6 +185,12 @@ class BetterString(str):
 
         return BetterString(colorize(text=self.string, color=color, bold=bold, underline=underline, bg=bg, start=start, end=end))
 
+    def rainbow(self):
+        """
+        Makes the string rainbow colored
+        """
+        return BetterString(rainbow(text=self.string))
+
     def count(self, pattern, start: int = START, end: int = FULL_SIZE, regex: bool = False):
         """
         This counts how many time the pattern appears

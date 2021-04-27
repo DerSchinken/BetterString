@@ -10,4 +10,5 @@ Some args have slightly weird names because I don't know better ones.
 [colorize](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/colorize.md)   
 [count](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/count.md)   
 [replace](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/replace.md)    
-[remove](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/remove.md)    
+[remove](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/remove.md)       
+[rainbow](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/rainbow.md)

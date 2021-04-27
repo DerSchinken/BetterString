@@ -1,4 +1,4 @@
-### remove
+### BetterString.remove
 Return a copy with all occurrences of substring patter replaced with "".   
 **You can use regex**     
  

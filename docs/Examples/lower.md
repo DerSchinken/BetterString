@@ -1,5 +1,4 @@
-
-### lower
+### BetterString.lower
 Better lower function. You can set start and end
 
 `BetterString.lower(end [optional], start [optional])`   
