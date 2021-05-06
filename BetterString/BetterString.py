@@ -37,8 +37,6 @@ class BetterString(str):
     """.replace("    ", "")[1:]
 
     def __init__(self, string):
-        super().__init__()
-
         self.string = str(string)
 
     def lower(self, end=FULL_SIZE, start=START):
