@@ -1,10 +1,10 @@
 ### BetterString.count
 This counts how many times the pattern appears in the string.    
 The pattern has to be a str if it is not it will be automatically converted    
-**You can use regex**
+**You can use regex**    
 
-`BetterString.count_pattern(pattern, regex [optional])`
-regex default is: False    
+`BetterString.count_pattern(pattern, regex [optional])`    
+regex default is: False      
 
 Example:
 ```python 
