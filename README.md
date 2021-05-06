@@ -123,6 +123,10 @@ Contributions are what makes the open source community such an amazing place to 
 5. Open a Pull Request
 
 
+<!-- Misc -->
+## Misc   
+The GitHub Pages Page is not quite finished
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
