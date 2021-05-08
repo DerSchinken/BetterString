@@ -136,5 +136,5 @@ The GitHub Pages Page is not quite finished
 [stars-url]: https://github.com/DrBumm/BetterString/stargazers
 [issues-shield]: https://img.shields.io/github/issues/DrBumm/BetterString?style=for-the-badge
 [issues-url]: https://github.com/DrBumm/BetterString/issues
-[python-shield]: https://img.shields.io/badge/Python-%3E%3D3.6-informational?style=for-the-badge&logo=appveyor
+[python-shield]: https://img.shields.io/badge/Python-%3E%3D%203.6-blue?style=for-the-badge&logo=appveyor
 [python-url]: https://python.org/
