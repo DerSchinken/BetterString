@@ -1,6 +1,9 @@
+from string import ascii_lowercase as lc, ascii_uppercase as uc
 from .Exceptions import *
 from .Color import *
 import re
+import random
+import hashlib
 
 # Important: Always put out new version on PyPI before pushing to github
 
@@ -108,7 +111,7 @@ class BetterString(str):
 
         return BetterString(upper_string)
 
-    def to_list(self) -> list:
+    def list(self) -> list:
         """
         Converts your string into a list or a tuple
         If the string is representing a list it will
@@ -124,7 +127,7 @@ class BetterString(str):
 
         return list_
 
-    def to_int(self) -> int:
+    def int(self) -> int:
         """
         Converts your string into an integer
         """
@@ -133,7 +136,7 @@ class BetterString(str):
         except ValueError:
             raise CannotConvertToError("int")
 
-    def to_dict(self) -> dict:
+    def dict(self) -> dict:
         """
         Converts your string into an dictionary
         """
@@ -145,6 +148,9 @@ class BetterString(str):
             raise CannotConvertToError("dict") from None
         except TypeError:
             raise CannotConvertToError("dict") from None
+
+    def str(self) -> str:
+        return self.string
 
     def colorize(self, color=None, bg=None, bold=False, underline=False, start=START, end=FULL_SIZE):
         """
@@ -183,11 +189,67 @@ class BetterString(str):
 
         return BetterString(colorize(text=self.string, color=color, bold=bold, underline=underline, bg=bg, start=start, end=end))
 
+    def shuffle(self):
+        """
+        Shuffles the string
+        """
+        ret = ""
+        indexes_done = []
+        while True:
+            index = random.randint(0, len(self.string) - 1)
+            if index not in indexes_done:
+                ret += self.string[index]
+                indexes_done.append(index)
+            elif len(indexes_done) == len(self.string):
+                break
+
+        return ret
+
+    def bomb(self):
+        """
+        Shuffles the string but an random amount of characters will disintegrate
+        """
+        ret = ""
+        indexes_done = []
+        for i in range(random.randint(0, len(self.string))):
+            index = random.randint(0, len(self.string) - 1)
+            if index not in indexes_done:
+                ret += self.string[index]
+                indexes_done.append(index)
+
+        return ret
+
     def rainbow(self):
         """
         Makes the string rainbow colored
         """
         return BetterString(rainbow(text=self.string))
+
+    def sha512(self):
+        """
+        Returns the sha512 value of the string
+        """
+        return hashlib.sha512(self.string.encode()).hexdigest()
+
+    def sha256(self):
+        """
+        Returns the sha256 value of the string
+        """
+        return hashlib.sha256(self.string.encode()).hexdigest()
+
+    def sha1(self):
+        """
+        Returns the sha1 value of the string
+        """
+        return hashlib.sha1(self.string.encode()).hexdigest()
+
+    def rot(self, rot=13):
+        """
+        Returns the string rotated by {rot}
+        """
+        rot = str.maketrans(lc + uc, lc[rot:] + lc[:rot] + uc[rot:] + uc[:rot])
+
+        return BetterString(self.string.translate(rot))
 
     def count(self, pattern, start: int = START, end: int = FULL_SIZE, regex: bool = False):
         """

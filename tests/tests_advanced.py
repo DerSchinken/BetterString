@@ -1,4 +1,3 @@
-import BetterString.Exceptions
 from BetterString import *
 # Tests for the errors
 
@@ -15,12 +14,12 @@ except IndexStartOutOfBoundError as ISOOB:
     print(ISOOB)
 
 try:
-    test_string.to_int()
+    test_string.int()
 except CannotConvertToError as CCTE:
     print(CCTE)
 
 try:
-    test_string.to_dict()
+    test_string.dict()
 except CannotConvertToError as CCTE:
     print(CCTE)
 

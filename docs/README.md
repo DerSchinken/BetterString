@@ -1,14 +1,26 @@
 # Docs
 Some args have slightly weird names because I don't know better ones.      
 
-## Features / Changes (except the type insensitivity):   
-[upper](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/upper.md)   
-[lower](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/lower.md)     
-[to_list](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/to_list.md)  
-[to_dict](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/to_dict.md)   
-[to_int](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/to_int.md)    
-[colorize](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/colorize.md)   
-[count](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/count.md)   
-[replace](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/replace.md)    
-[remove](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/remove.md)       
-[rainbow](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/rainbow.md)
+## Features / Changes:   
+### Changes
+[upper](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/changes/upper.md)   
+[lower](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/changes/lower.md)  
+[count](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/changes/count.md)   
+[replace](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/changes/replace.md)      
+
+### Useful Additions
+[list](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/list.md)  
+[dict](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/dict.md)   
+[int](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/int.md)    
+[str](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/str.md)
+[remove](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/remove.md)   
+
+### Misc
+[colorize](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/colorize.md)     
+[rainbow](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/rainbow.md)       
+[shuffle](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/shuffle.md)      
+[bomb](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/bomb.md)    
+[rot](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/rot.md)        
+[sha512](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/sha/sha512.md)     
+[sha256](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/sha/sha256.md)     
+[sha1](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/sha/sha1.md)     
