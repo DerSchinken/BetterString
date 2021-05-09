@@ -1,5 +1,5 @@
 from string import ascii_lowercase as lc, ascii_uppercase as uc
-from .Exceptions import *
+from functools import wraps
 from .Color import *
 import re
 import random
@@ -30,6 +30,25 @@ BLUE_BG = 'BLUE'
 PURPLE_BG = 'PURPLE'
 CYAN_BG = 'CYAN'
 WHITE_BG = 'WHITE'
+
+
+# Decorators
+def shuffle_funcs(f):
+    @wraps(f)
+    def wrapper(*args):
+        ret = ""
+        indexes_done = []
+        while True:
+            index = random.randint(0, len(args[0].string) - 1)
+            if index not in indexes_done:
+                ret += args[0].string[index]
+                indexes_done.append(index)
+            elif len(indexes_done) == len(args[0].string):
+                break
+
+        return f(args[0], ret)
+
+    return wrapper
 
 
 class BetterString(str):
@@ -150,6 +169,9 @@ class BetterString(str):
             raise CannotConvertToError("dict") from None
 
     def str(self) -> str:
+        """
+        Returns the String
+        """
         return self.string
 
     def colorize(self, color=None, bg=None, bold=False, underline=False, start=START, end=FULL_SIZE):
@@ -189,35 +211,19 @@ class BetterString(str):
 
         return BetterString(colorize(text=self.string, color=color, bold=bold, underline=underline, bg=bg, start=start, end=end))
 
-    def shuffle(self):
+    @shuffle_funcs
+    def shuffle(self, ret):
         """
         Shuffles the string
         """
-        ret = ""
-        indexes_done = []
-        while True:
-            index = random.randint(0, len(self.string) - 1)
-            if index not in indexes_done:
-                ret += self.string[index]
-                indexes_done.append(index)
-            elif len(indexes_done) == len(self.string):
-                break
-
         return ret
 
-    def bomb(self):
+    @shuffle_funcs
+    def bomb(self, ret):
         """
         Shuffles the string but an random amount of characters will disintegrate
         """
-        ret = ""
-        indexes_done = []
-        for i in range(random.randint(0, len(self.string))):
-            index = random.randint(0, len(self.string) - 1)
-            if index not in indexes_done:
-                ret += self.string[index]
-                indexes_done.append(index)
-
-        return ret
+        return ret[:random.randint(0, len(self.string)-1)]
 
     def rainbow(self):
         """
@@ -245,7 +251,7 @@ class BetterString(str):
 
     def rot(self, rot=13):
         """
-        Returns the string rotated by {rot}
+        Caesar encryption
         """
         rot = str.maketrans(lc + uc, lc[rot:] + lc[:rot] + uc[rot:] + uc[:rot])
 
