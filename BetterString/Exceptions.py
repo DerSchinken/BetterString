@@ -3,11 +3,6 @@ class IndexStartOutOfBoundError(Exception):
         super().__init__("Index start is out of bounds!")
 
 
-class StringCannotBeConverted(Exception):
-    def __init__(self, string, convert_type):
-        super().__init__(f"String: '{string}' cannot be converted to type: '{convert_type}'!")
-
-
 class StringNotCallable(Exception):
     def __init__(self):
         super().__init__("String not callable!")

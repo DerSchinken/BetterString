@@ -9,10 +9,10 @@ with open("requirements.txt", "r") as requirements:
 
 setup(
     name="BetterString",
-    version="2.12.1",
+    version="2.12.2",
     # Major version 2
     # Minor version 12
-    # Maintenance version 1
+    # Maintenance version 2
 
     author="DerSchinken (aka DrBumm)",
     description="Like a normal string but with more functionality",
