@@ -500,9 +500,7 @@ class BetterString(str):
         raise StringNotCallable()
 
     def __repr__(self):
-        ret = f"BetterStrings('{self.string}')"
-
-        return BetterString(ret)
+        return '"' + self.string + '"'
 
     def __add__(self, value: int or str):
         ret = self.string.__add__(str(value))
