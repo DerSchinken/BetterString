@@ -216,14 +216,14 @@ class BetterString(str):
         """
         Shuffles the string
         """
-        return ret
+        return BetterString(ret)
 
     @shuffle_funcs
     def bomb(self, ret):
         """
         Shuffles the string but an random amount of characters will disintegrate
         """
-        return ret[:random.randint(0, len(self.string)-1)]
+        return BetterString(ret[:random.randint(0, len(self.string)-1)])
 
     def rainbow(self):
         """
