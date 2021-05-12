@@ -10,4 +10,5 @@ import BetterString
 
 test_string = BetterString.BetterString("Test String")
 print(test_string.rot())
+print(test_string.rot(16))
 ```

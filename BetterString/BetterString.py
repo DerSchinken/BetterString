@@ -53,6 +53,8 @@ def shuffle_funcs(f):
 
 
 # Dummy so we can use it for function annotations
+# I could use from __future__ import annotations
+# but that is only available for python 3.7+
 class BetterString(object):
     pass
 
@@ -216,7 +218,8 @@ class BetterString(str):
         if end == "fs":
             end = len(self.string)
 
-        return BetterString(colorize(text=self.string, color=color, bold=bold, underline=underline, bg=bg, start=start, end=end))
+        return BetterString(
+            colorize(text=self.string, color=color, bold=bold, underline=underline, bg=bg, start=start, end=end))
 
     @shuffle_funcs
     def shuffle(self, ret) -> BetterString:
@@ -230,7 +233,7 @@ class BetterString(str):
         """
         Shuffles the string but an random amount of characters will disintegrate
         """
-        return BetterString(ret[:random.randint(0, len(self.string)-1)])
+        return BetterString(ret[:random.randint(0, len(self.string) - 1)])
 
     def rainbow(self) -> BetterString:
         """
@@ -259,10 +262,33 @@ class BetterString(str):
     def rot(self, rot=13) -> BetterString:
         """
         Caesar encryption
+
+        :param rot: rotation
         """
         rot = str.maketrans(lc + uc, lc[rot:] + lc[:rot] + uc[rot:] + uc[:rot])
 
         return BetterString(self.string.translate(rot))
+
+    def binary(self, list_=False) -> list or BetterString:
+        """
+        Returns the binary of the string
+
+        :param list_: Set to True if return should be a list
+        """
+        if not isinstance(list_, bool):
+            raise TypeError("'list_' has to be of type 'bool'!")
+
+        ret = []
+        for byte in bytearray(self.string, "utf-8"):
+            ret.append(bin(byte).replace("0b", ""))
+
+        if list_:
+            return ret
+        elif not list_:
+            return BetterString(' '.join(ret))
+
+        # return BetterString(' '.join([bin(x) for x in bytearray(self.string, "utf-8")])).remove("0b") if not list_ else [bin(x).replace("0b", "") for x in bytearray(self.string, "utf-8")]
+        # ^ Ez oneliner; but it is not checking the type of list_
 
     def count(self, pattern, start: int = START, end: int = FULL_SIZE, regex: bool = False) -> int:
         """

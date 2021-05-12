@@ -62,3 +62,7 @@ print(test_string.join(["t", "e", "s", "t"]))
 
 test_string = BetterString("{test} {test} {} String")
 print(test_string.format("tessst", test="Test"))
+
+print(test_string.binary())
+print(test_string.binary(False))
+print(test_string.binary(True))
