@@ -66,3 +66,5 @@ print(test_string.format("tessst", test="Test"))
 print(test_string.binary())
 print(test_string.binary(False))
 print(test_string.binary(True))
+
+print(test_string.hex())

@@ -25,3 +25,4 @@ Some args have slightly weird names because I don't know better ones.
 [sha256](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/sha256.md)     
 [sha1](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/sha1.md)     
 [binary](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/binary.md)     
+[hex](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/hex.md)

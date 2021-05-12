@@ -290,6 +290,12 @@ class BetterString(str):
         # return BetterString(' '.join([bin(x) for x in bytearray(self.string, "utf-8")])).remove("0b") if not list_ else [bin(x).replace("0b", "") for x in bytearray(self.string, "utf-8")]
         # ^ Ez oneliner; but it is not checking the type of list_
 
+    def hex(self):
+        """
+        Returns the hex of the string
+        """
+        return self.string.encode().hex()
+
     def count(self, pattern, start: int = START, end: int = FULL_SIZE, regex: bool = False) -> int:
         """
         This counts how many time the pattern appears
