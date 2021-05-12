@@ -1,6 +1,7 @@
 from string import ascii_lowercase as lc, ascii_uppercase as uc
 from functools import wraps
 from .Color import *
+from .Exceptions import *
 import re
 import random
 import hashlib
@@ -51,17 +52,23 @@ def shuffle_funcs(f):
     return wrapper
 
 
-class BetterString(str):
-    __doc__ = """
-    This returns a string with more functionality!
+# Dummy so we can use it for function annotations
+class BetterString(object):
+    pass
 
+
+# noinspection PyRedeclaration
+# ^ so PyCharm doesn't cry cuz we redeclare this class
+class BetterString(str):
+    """
+    This returns a string with more functionality!
     BetterString has the same functions as str with a few extras and changes
-    """.replace("    ", "")[1:]
+    """
 
     def __init__(self, string):
         self.string = str(string)
 
-    def lower(self, end=FULL_SIZE, start=START):
+    def lower(self, end=FULL_SIZE, start=START) -> BetterString:
         """
         Better Upper function. You can
         choose how many characters will
@@ -96,7 +103,7 @@ class BetterString(str):
 
         return BetterString(lower_string)
 
-    def upper(self, end=FULL_SIZE, start=START):
+    def upper(self, end=FULL_SIZE, start=START) -> BetterString:
         """
         Better Upper function. You can
         choose how many characters will
@@ -174,7 +181,7 @@ class BetterString(str):
         """
         return self.string
 
-    def colorize(self, color=None, bg=None, bold=False, underline=False, start=START, end=FULL_SIZE):
+    def colorize(self, color=None, bg=None, bold=False, underline=False, start=START, end=FULL_SIZE) -> BetterString:
         """
         Colorizes the string with the given color
 
@@ -212,44 +219,44 @@ class BetterString(str):
         return BetterString(colorize(text=self.string, color=color, bold=bold, underline=underline, bg=bg, start=start, end=end))
 
     @shuffle_funcs
-    def shuffle(self, ret):
+    def shuffle(self, ret) -> BetterString:
         """
         Shuffles the string
         """
         return BetterString(ret)
 
     @shuffle_funcs
-    def bomb(self, ret):
+    def bomb(self, ret) -> BetterString:
         """
         Shuffles the string but an random amount of characters will disintegrate
         """
         return BetterString(ret[:random.randint(0, len(self.string)-1)])
 
-    def rainbow(self):
+    def rainbow(self) -> BetterString:
         """
         Makes the string rainbow colored
         """
         return BetterString(rainbow(text=self.string))
 
-    def sha512(self):
+    def sha512(self) -> str:
         """
         Returns the sha512 value of the string
         """
         return hashlib.sha512(self.string.encode()).hexdigest()
 
-    def sha256(self):
+    def sha256(self) -> str:
         """
         Returns the sha256 value of the string
         """
         return hashlib.sha256(self.string.encode()).hexdigest()
 
-    def sha1(self):
+    def sha1(self) -> str:
         """
         Returns the sha1 value of the string
         """
         return hashlib.sha1(self.string.encode()).hexdigest()
 
-    def rot(self, rot=13):
+    def rot(self, rot=13) -> BetterString:
         """
         Caesar encryption
         """
@@ -257,7 +264,7 @@ class BetterString(str):
 
         return BetterString(self.string.translate(rot))
 
-    def count(self, pattern, start: int = START, end: int = FULL_SIZE, regex: bool = False):
+    def count(self, pattern, start: int = START, end: int = FULL_SIZE, regex: bool = False) -> int:
         """
         This counts how many time the pattern appears
         in the string.
@@ -274,7 +281,7 @@ class BetterString(str):
             ret = self.string.count(pattern, start, end)
         return ret
 
-    def replace(self, old: str, new: str = "", count: int = FULL_SIZE, regex: bool = False):
+    def replace(self, old: str, new: str = "", count: int = FULL_SIZE, regex: bool = False) -> BetterString:
         """
         Return a copy with all occurrences of substring old replaced by new.
 
@@ -295,7 +302,7 @@ class BetterString(str):
             ret = self.string.replace(old, new, count)
         return BetterString(ret)
 
-    def remove(self, pattern: str, count: int = FULL_SIZE, regex: bool = False):
+    def remove(self, pattern: str, count: int = FULL_SIZE, regex: bool = False) -> BetterString:
         """
         Return a copy with all occurrences of substring pattern removed
 
@@ -314,9 +321,9 @@ class BetterString(str):
             ret = re.sub(str(pattern), "", self.string, count)
         else:
             ret = self.string.replace(pattern, "", count)
-        return ret
+        return BetterString(ret)
 
-    def capitalize(self):
+    def capitalize(self) -> BetterString:
         """
         Return a capitalized version of S, i.e. make the first
         character have upper case and the rest lower case.
@@ -324,14 +331,14 @@ class BetterString(str):
         ret = self.string.capitalize()
         return BetterString(ret)
 
-    def casefold(self):
+    def casefold(self) -> BetterString:
         """
         Return a version of the string suitable for caseless comparisons.
         """
         ret = self.string.casefold()
         return BetterString(ret)
 
-    def center(self, width: int, fillchar: str = ' '):
+    def center(self, width: int, fillchar: str = ' ') -> BetterString:
         """
         Return S centered in a Unicode string of length width.
         Padding is done using the specified fill character (default is a space)
@@ -339,7 +346,7 @@ class BetterString(str):
         ret = self.string.center(int(width), str(fillchar))
         return BetterString(ret)
 
-    def expandtabs(self, tabsize: int = 8):
+    def expandtabs(self, tabsize: int = 8) -> BetterString:
         """
         Return a copy of S where all tab characters are expanded using spaces.
         If tabsize is not given, a tab size of 8 characters is assumed.
@@ -347,15 +354,15 @@ class BetterString(str):
         ret = self.string.expandtabs(int(tabsize))
         return BetterString(ret)
 
-    def format(self, *args, **kwargs):
+    def format(self, *args, **kwargs) -> BetterString:
         """
         Return a formatted version of S, using substitutions from args and kwargs.
         The substitutions are identified by braces ('{' and '}').
         """
         ret = self.string.format(*args, **kwargs)
-        return ret
+        return BetterString(ret)
 
-    def format_map(self, mapping):
+    def format_map(self, mapping) -> BetterString:
         """
         Return a formatted version of S, using substitutions from mapping.
         The substitutions are identified by braces ('{' and '}').
@@ -363,7 +370,7 @@ class BetterString(str):
         ret = self.string.format_map(mapping)
         return BetterString(ret)
 
-    def join(self, iterable):
+    def join(self, iterable) -> BetterString:
         """
         Concatenate any number of strings.
 
@@ -373,7 +380,7 @@ class BetterString(str):
         ret = self.string.join(iterable)
         return BetterString(ret)
 
-    def ljust(self, width: int, fillchar: str = ' '):
+    def ljust(self, width: int, fillchar: str = ' ') -> BetterString:
         """
         Return S left-justified in a Unicode string of length width.
         Padding is done using the specified fill character (default is a space).
@@ -383,7 +390,7 @@ class BetterString(str):
         ret = self.string.ljust(int(width), str(fillchar))
         return BetterString(ret)
 
-    def lstrip(self, chars: str = None):
+    def lstrip(self, chars: str = None) -> BetterString:
         """
         Return a copy of the string S with leading whitespace removed.
         If chars is given and not None, remove characters in chars instead.
@@ -395,7 +402,7 @@ class BetterString(str):
             ret = self.string.lstrip(str(chars))
         return BetterString(ret)
 
-    def rjust(self, width: int, fillchar: str = ' '):
+    def rjust(self, width: int, fillchar: str = ' ') -> BetterString:
         """
         Return S right-justified in a Unicode string of length width.
         Padding is done using the specified fill character (default is a space).
@@ -403,7 +410,7 @@ class BetterString(str):
         ret = self.string.rjust(int(width), str(fillchar))
         return BetterString(ret)
 
-    def rstrip(self, chars: str = None):
+    def rstrip(self, chars: str = None) -> BetterString:
         """
         Return a copy of the string S with trailing whitespace removed.
         If chars is given and not None, remove characters in chars instead.
@@ -415,7 +422,7 @@ class BetterString(str):
             ret = self.string.rstrip(str(chars))
         return BetterString(ret)
 
-    def strip(self, chars: str = None):
+    def strip(self, chars: str = None) -> BetterString:
         """
         Return a copy of the string S with leading and trailing whitespace removed.
         If chars is given and not None, remove characters in chars instead. If chars
@@ -427,14 +434,14 @@ class BetterString(str):
             ret = self.string.strip(str(chars))
         return BetterString(ret)
 
-    def swapcase(self):
+    def swapcase(self) -> BetterString:
         """
         Return a copy of S with uppercase characters converted to lowercase and vice versa.
         """
         ret = self.string.swapcase()
         return BetterString(ret)
 
-    def title(self):
+    def title(self) -> BetterString:
         """
         Return a titlecased version of S, i.e. words start with title case characters, all
         remaining cased characters have lower case.
@@ -442,7 +449,7 @@ class BetterString(str):
         ret = self.string.title()
         return BetterString(ret)
 
-    def translate(self, table):
+    def translate(self, table) -> BetterString:
         """
         Replace each character in the string using the given translation table.
 
@@ -457,7 +464,7 @@ class BetterString(str):
         ret = self.string.translate(table)
         return BetterString(ret)
 
-    def zfill(self, width: int):
+    def zfill(self, width: int) -> BetterString:
         """
         Pad a numeric string S with zeros on the left, to fill a field of the specified width.
         The string S is never truncated.
@@ -466,7 +473,7 @@ class BetterString(str):
         return BetterString(ret)
 
     # Magic methods
-    def __getitem__(self, item: int or slice):
+    def __getitem__(self, item: int or slice) -> BetterString:
         """
         item has to be int or slice
         if it is an str it will try to convert the str into an int
@@ -496,25 +503,25 @@ class BetterString(str):
 
         return BetterString(ret)
 
-    def __call__(self):
+    def __call__(self) -> Exception:
         raise StringNotCallable()
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return '"' + self.string + '"'
 
-    def __add__(self, value: int or str):
+    def __add__(self, value: int or str) -> BetterString:
         ret = self.string.__add__(str(value))
         return BetterString(ret)
 
-    def __getnewargs__(self):
+    def __getnewargs__(self) -> BetterString:
         ret = self.string.__getnewargs__()
         return BetterString(ret)
 
-    def __mul__(self, value: int):
+    def __mul__(self, value: int) -> BetterString:
         ret = self.string.__mul__(int(value))
         return BetterString(ret)
 
-    def __rmul__(self, value: int):
+    def __rmul__(self, value: int) -> BetterString:
         ret = self.string.__rmul__(int(value))
         return BetterString(ret)
 
