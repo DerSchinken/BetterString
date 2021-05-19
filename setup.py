@@ -9,9 +9,9 @@ with open("requirements.txt", "r") as requirements:
 
 setup(
     name="BetterString",
-    version="2.14.0",
+    version="2.15.0",
     # Major version 2
-    # Minor version 14
+    # Minor version 15
     # Maintenance version 0
 
     author="DerSchinken (aka DrBumm)",

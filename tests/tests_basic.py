@@ -68,3 +68,6 @@ print(test_string.binary(False))
 print(test_string.binary(True))
 
 print(test_string.hex())
+
+print(test_string.swap(0, 2))
+print(test_string.swap(2, 0))

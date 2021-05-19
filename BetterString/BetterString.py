@@ -37,8 +37,16 @@ WHITE_BG = 'WHITE'
 def shuffle_funcs(f):
     @wraps(f)
     def wrapper(*args):
-        ret = ""
-        indexes_done = []
+        # Checking that there are no args
+        if len(args) > 1:
+            raise TypeError(f"{f.__name__} takes 1 positional arguments but {len(args)} was given")
+
+        ret, indexes_done = "", []
+        # While not every char is done
+        # choose a random char put it to the ret
+        # append the char index to indexes done
+        # if indexes done has the length of the string
+        # break
         while True:
             index = random.randint(0, len(args[0].string) - 1)
             if index not in indexes_done:
@@ -76,27 +84,28 @@ class BetterString(str):
         choose how many characters will
         be upper size
         """
-        lower_string = ""
+        lower_string, i = "", 0
+        # Getting full size
         if end == "fs":
             end = len(self.string)
+        # Checking if everything has the right type or can be converted to the right type
         elif isinstance(end, str):
             try:
                 end = int(end)
             except ValueError:
                 raise TypeError("end has to be of type Int")
-
         if isinstance(start, str):
             try:
                 start = int(start)
             except ValueError:
-                raise TypeError("Start has to be of type Int")
+                raise TypeError("start has to be of type Int")
 
+        # Checking that nothing is to big
         if end > len(self.string):
             raise ValueError(f"'end' of {end} is to big!")
         if start > len(self.string):
             raise ValueError(f"'start' of {start} is to big")
 
-        i = start
         for i in range(start, end):
             if i <= end:
                 lower_string += self.string[i].lower()
@@ -111,9 +120,11 @@ class BetterString(str):
         choose how many characters will
         be upper size
         """
-        upper_string = ""
+        upper_string, i = "", 0
+        # Getting full size
         if end == "fs":
             end = len(self.string)
+        # Checking if everything has the right type or can be converted to the right type
         elif isinstance(end, str):
             try:
                 end = int(end)
@@ -125,12 +136,12 @@ class BetterString(str):
             except ValueError:
                 raise TypeError("Start has to be of type Int")
 
+        # Checking that nothing is to big
         if end > len(self.string):
             raise ValueError(f"Size of {end} is to big!")
         if start > len(self.string):
             raise ValueError(f"'start' of {start} is to big")
 
-        i = start
         for i in range(start, end):
             if i <= end:
                 upper_string += self.string[i].upper()
@@ -183,7 +194,8 @@ class BetterString(str):
         """
         return self.string
 
-    def colorize(self, color=None, bg=None, bold=False, underline=False, start=START, end=FULL_SIZE) -> BetterString:
+    def colorize(self, color=None, bg=None, bold=False, underline=False,
+                 start=START, end=FULL_SIZE) -> BetterString:
         """
         Colorizes the string with the given color
 
@@ -215,11 +227,17 @@ class BetterString(str):
         :param start: start of colors and stuff
         :param end: end of colors and stuff
         """
+        # If nothing is set change nothing and return self
+        if color is None and bg is None and bold is False and underline is False and start == START and end == FULL_SIZE:
+            return self
+
+        # Getting full size
         if end == "fs":
             end = len(self.string)
 
         return BetterString(
-            colorize(text=self.string, color=color, bold=bold, underline=underline, bg=bg, start=start, end=end))
+            colorize(text=self.string, color=color, bold=bold,
+                     underline=underline, bg=bg, start=start, end=end))
 
     @shuffle_funcs
     def shuffle(self, ret) -> BetterString:
@@ -278,6 +296,7 @@ class BetterString(str):
         if not isinstance(list_, bool):
             raise TypeError("'list_' has to be of type 'bool'!")
 
+        # Iterating over all characters and converting them to binary
         ret = []
         for byte in bytearray(self.string, "utf-8"):
             ret.append(bin(byte).replace("0b", ""))
@@ -305,12 +324,15 @@ class BetterString(str):
 
         **You can use regex**
         """
+        # Getting the full size
         if end == "fs":
             end = len(self.string)
+
         if regex:
             ret = len(re.findall(str(pattern), self.string[start:end]))
         else:
             ret = self.string.count(pattern, start, end)
+
         return ret
 
     def replace(self, old: str, new: str = "", count: int = FULL_SIZE, regex: bool = False) -> BetterString:
@@ -326,12 +348,15 @@ class BetterString(str):
         If the optional argument count is given, only the first count occurrences are
         replaced.
         """
+        # Getting the full size
         if count == "fs":
             count = len(self.string)
+
         if regex:
             ret = re.sub(old, new, self.string, count)
         else:
             ret = self.string.replace(old, new, count)
+
         return BetterString(ret)
 
     def remove(self, pattern: str, count: int = FULL_SIZE, regex: bool = False) -> BetterString:
@@ -347,13 +372,52 @@ class BetterString(str):
         If the optional argument count is given, only the first count occurrences are
         replaced.
         """
+        # Getting the full size
         if count == "fs":
             count = len(self.string)
+
         if regex:
             ret = re.sub(str(pattern), "", self.string, count)
         else:
             ret = self.string.replace(pattern, "", count)
+
         return BetterString(ret)
+
+    def swap(self, index1, index2):
+        """
+        Swaps character with index of index1 with character of index index2
+        """
+        # Checking if index1 and index2 is of type int
+        # if not try to convert them
+        if not isinstance(index1, int):
+            try:
+                index1 = int(index1)
+            except ValueError:
+                raise TypeError("index1 has to be of type int!")
+        if not isinstance(index2, int):
+            try:
+                index2 = int(index2)
+            except ValueError:
+                raise TypeError("index2 has to be of type int!")
+
+        # Turning the string into an list because
+        # strings are immutable but lists are mutable
+        tmp_new_string = list(self.string)
+        try:
+            # Getting the chars of both indexes
+            index1_char = tmp_new_string[index1]
+            index2_char = tmp_new_string[index2]
+
+            # Swapping
+            tmp_new_string[index1] = index2_char
+            tmp_new_string[index2] = index1_char
+
+            # Putting the new string together
+            new_string = ''.join(tmp_new_string)
+        except IndexError:
+            raise IndexError("string index out of bounds") from None
+
+        return BetterString(new_string)
 
     def capitalize(self) -> BetterString:
         """
@@ -361,6 +425,7 @@ class BetterString(str):
         character have upper case and the rest lower case.
         """
         ret = self.string.capitalize()
+
         return BetterString(ret)
 
     def casefold(self) -> BetterString:
@@ -368,6 +433,7 @@ class BetterString(str):
         Return a version of the string suitable for caseless comparisons.
         """
         ret = self.string.casefold()
+
         return BetterString(ret)
 
     def center(self, width: int, fillchar: str = ' ') -> BetterString:
@@ -376,6 +442,7 @@ class BetterString(str):
         Padding is done using the specified fill character (default is a space)
         """
         ret = self.string.center(int(width), str(fillchar))
+
         return BetterString(ret)
 
     def expandtabs(self, tabsize: int = 8) -> BetterString:
@@ -384,6 +451,7 @@ class BetterString(str):
         If tabsize is not given, a tab size of 8 characters is assumed.
         """
         ret = self.string.expandtabs(int(tabsize))
+
         return BetterString(ret)
 
     def format(self, *args, **kwargs) -> BetterString:
@@ -392,6 +460,7 @@ class BetterString(str):
         The substitutions are identified by braces ('{' and '}').
         """
         ret = self.string.format(*args, **kwargs)
+
         return BetterString(ret)
 
     def format_map(self, mapping) -> BetterString:
@@ -400,6 +469,7 @@ class BetterString(str):
         The substitutions are identified by braces ('{' and '}').
         """
         ret = self.string.format_map(mapping)
+
         return BetterString(ret)
 
     def join(self, iterable) -> BetterString:
@@ -410,6 +480,7 @@ class BetterString(str):
         The result is returned as a new string.
         """
         ret = self.string.join(iterable)
+
         return BetterString(ret)
 
     def ljust(self, width: int, fillchar: str = ' ') -> BetterString:
@@ -420,6 +491,7 @@ class BetterString(str):
         if str(fillchar).lower() == "rickroll":
             print("Never Gonna Give You Up!")
         ret = self.string.ljust(int(width), str(fillchar))
+
         return BetterString(ret)
 
     def lstrip(self, chars: str = None) -> BetterString:
@@ -432,6 +504,7 @@ class BetterString(str):
             ret = self.string.lstrip(chars)
         else:
             ret = self.string.lstrip(str(chars))
+
         return BetterString(ret)
 
     def rjust(self, width: int, fillchar: str = ' ') -> BetterString:
@@ -440,6 +513,7 @@ class BetterString(str):
         Padding is done using the specified fill character (default is a space).
         """
         ret = self.string.rjust(int(width), str(fillchar))
+
         return BetterString(ret)
 
     def rstrip(self, chars: str = None) -> BetterString:
@@ -452,6 +526,7 @@ class BetterString(str):
             ret = self.string.rstrip(chars)
         else:
             ret = self.string.rstrip(str(chars))
+
         return BetterString(ret)
 
     def strip(self, chars: str = None) -> BetterString:
@@ -464,6 +539,7 @@ class BetterString(str):
             ret = self.string.strip(chars)
         else:
             ret = self.string.strip(str(chars))
+
         return BetterString(ret)
 
     def swapcase(self) -> BetterString:
@@ -471,6 +547,7 @@ class BetterString(str):
         Return a copy of S with uppercase characters converted to lowercase and vice versa.
         """
         ret = self.string.swapcase()
+
         return BetterString(ret)
 
     def title(self) -> BetterString:
@@ -479,6 +556,7 @@ class BetterString(str):
         remaining cased characters have lower case.
         """
         ret = self.string.title()
+
         return BetterString(ret)
 
     def translate(self, table) -> BetterString:
@@ -494,6 +572,7 @@ class BetterString(str):
         left untouched.  Characters mapped to None are deleted.
         """
         ret = self.string.translate(table)
+
         return BetterString(ret)
 
     def zfill(self, width: int) -> BetterString:
@@ -502,6 +581,7 @@ class BetterString(str):
         The string S is never truncated.
         """
         ret = self.string.zfill(int(width))
+
         return BetterString(ret)
 
     # Magic methods
@@ -543,18 +623,22 @@ class BetterString(str):
 
     def __add__(self, value: int or str) -> BetterString:
         ret = self.string.__add__(str(value))
+
         return BetterString(ret)
 
     def __getnewargs__(self) -> BetterString:
         ret = self.string.__getnewargs__()
+
         return BetterString(ret)
 
     def __mul__(self, value: int) -> BetterString:
         ret = self.string.__mul__(int(value))
+
         return BetterString(ret)
 
     def __rmul__(self, value: int) -> BetterString:
         ret = self.string.__rmul__(int(value))
+
         return BetterString(ret)
 
 # Discord: Peter | Btw. SCHINKEN!!1!!11#0930

@@ -52,3 +52,20 @@ try:
     test_string.lower("asdas1")
 except TypeError as TE:
     print(TE)
+
+try:
+    test_string.swap(0, 1000)
+except IndexError as IE:
+    print(IE)
+try:
+    test_string.swap(1000, 0)
+except IndexError as IE:
+    print(IE)
+try:
+    test_string.swap(0, "10t00")
+except TypeError as TE:
+    print(TE)
+try:
+    test_string.swap("100t0", 0)
+except TypeError as TE:
+    print(TE)
