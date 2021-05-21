@@ -9,10 +9,10 @@ with open("requirements.txt", "r") as requirements:
 
 setup(
     name="BetterString",
-    version="2.15.0",
+    version="2.15.1",
     # Major version 2
     # Minor version 15
-    # Maintenance version 0
+    # Maintenance version 1
 
     author="DerSchinken (aka DrBumm)",
     description="Like a normal string but with more functionality",
@@ -20,7 +20,7 @@ setup(
     long_description_content_type="text/markdown",
     packages=find_packages(),
     install_requires=reqs,
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     url="https://github.com/DrBumm/BetterString",
     keyword=[
         "Better String",
@@ -30,10 +30,10 @@ setup(
     classifiers=[
         'Intended Audience :: Developers',
 
-        "Programming Language :: Python :: 3.6",
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        "Programming Language :: Python :: 3.10"
     ],
 )
 #  https://drbumm.github.io/BetterString/

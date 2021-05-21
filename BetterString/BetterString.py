@@ -1,3 +1,4 @@
+from __future__ import annotations
 from string import ascii_lowercase as lc, ascii_uppercase as uc
 from functools import wraps
 from .Color import *
@@ -60,15 +61,6 @@ def shuffle_funcs(f):
     return wrapper
 
 
-# Dummy so we can use it for function annotations
-# I could use from __future__ import annotations
-# but that is only available for python 3.7+
-class BetterString(object):
-    pass
-
-
-# noinspection PyRedeclaration
-# ^ so PyCharm doesn't cry cuz we redeclare this class
 class BetterString(str):
     """
     This returns a string with more functionality!

@@ -96,7 +96,7 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
-Python >= 3.6
+Python >= 3.7
 
 ### Installation
 1. Open a terminal
@@ -136,5 +136,5 @@ The GitHub Pages Page is not quite finished
 [stars-url]: https://github.com/DrBumm/BetterString/stargazers
 [issues-shield]: https://img.shields.io/github/issues/DrBumm/BetterString?style=for-the-badge
 [issues-url]: https://github.com/DrBumm/BetterString/issues
-[python-shield]: https://img.shields.io/badge/Python-%3E%3D%203.6-blue?style=for-the-badge&logo=appveyor
+[python-shield]: https://img.shields.io/badge/Python-%3E%3D%203.7-blue?style=for-the-badge&logo=appveyor
 [python-url]: https://python.org/
