@@ -2,7 +2,7 @@ from .Exceptions import *
 import random
 
 
-class colors:
+class Colors:
     """
     Usage:
     tcolors.color_you_want + "your string" + tcolors.ENDC
@@ -18,10 +18,10 @@ class colors:
     YELLOW = '\033[43'
 
 
-colors = colors()
+colors = Colors()
 
 
-class background_colors:
+class BackgroundColors:
     BLACK = '\033[93m'
     RED = '\033[41m'
     GREEN = '\033[42m'
@@ -32,10 +32,10 @@ class background_colors:
     WHITE = '\033[47m'
 
 
-background_colors = background_colors()
+background_colors = BackgroundColors()
 
 
-class special:
+class Special:
     HEADER = '\033[95m'
     ENDC = '\033[0m'
     BOLD = '\033[1m'
@@ -118,12 +118,12 @@ def colorize(**kwargs) -> str:
             raise BackgroundColorNotFound(bg.lower()) from None
 
     if bold:
-        ret += special.BOLD
+        ret += Special.BOLD
     if underline:
-        ret += special.UNDERLINE
+        ret += Special.UNDERLINE
 
     ret += text[start:end]
-    ret += special.ENDC
+    ret += Special.ENDC
     ret += text[end:]
 
     return ret
@@ -140,4 +140,4 @@ def rainbow(text):
             else: ret += " "
             i += 1
     except IndexError:
-        return ret + special.ENDC
+        return ret + Special.ENDC

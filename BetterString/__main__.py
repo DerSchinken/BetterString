@@ -73,10 +73,10 @@ if flags["h"] or flags["help"]:
 
 ret = ""
 if flags["b"] or flags["bold"]:
-    ret += BetterString.special.BOLD
+    ret += BetterString.Special.BOLD
 
 if flags["ul"] or flags["underline"]:
-    ret += BetterString.special.UNDERLINE
+    ret += BetterString.Special.UNDERLINE
 
 if flags["l"] or flags["lower"]:
     ret += str_text.lower()
@@ -87,6 +87,6 @@ if flags["u"] or flags["upper"]:
 if not (flags["u"] or flags["upper"]) and not (flags["l"] or flags["lower"]):
     ret += str_text
 
-ret += BetterString.special.ENDC
+ret += BetterString.Special.ENDC
 
 print(ret)

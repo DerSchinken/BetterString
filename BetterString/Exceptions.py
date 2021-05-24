@@ -19,5 +19,5 @@ class BackgroundColorNotFound(Exception):
 
 
 class CannotConvertToError(Exception):
-    def __init__(self, type):
-        super().__init__(f"Cannot convert the string to type {type}!")
+    def __init__(self):
+        super().__init__(f"Cannot convert the string!")

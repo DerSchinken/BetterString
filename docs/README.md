@@ -8,12 +8,10 @@ Some args have slightly weird names because I don't know better ones.
 [count](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/changes/count.md)   
 [replace](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/changes/replace.md)      
 
-### Useful Additions
-[list](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/list.md)  
-[dict](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/dict.md)   
-[int](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/int.md)    
-[str](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/str.md)
-[remove](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/remove.md)   
+### Useful Additions 
+[to_literal](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/to_literal.md)   
+[str](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/str.md)    
+[remove](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/useful_additions/remove.md)      
 
 ### Misc
 [colorize](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/colorize.md)     
@@ -24,5 +22,6 @@ Some args have slightly weird names because I don't know better ones.
 [sha512](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/sha512.md)     
 [sha256](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/sha256.md)     
 [sha1](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/sha1.md)     
-[binary](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/binary.md)     
-[hex](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/hex.md)
+[binary](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/binary.md)       
+[hex](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/hex.md)     
+[permutations](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/permutations.md)   

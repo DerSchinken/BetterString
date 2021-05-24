@@ -14,12 +14,12 @@ except IndexStartOutOfBoundError as ISOOB:
     print(ISOOB)
 
 try:
-    test_string.int()
+    test_string.to_literal()
 except CannotConvertToError as CCTE:
     print(CCTE)
 
 try:
-    test_string.dict()
+    test_string.to_literal()
 except CannotConvertToError as CCTE:
     print(CCTE)
 

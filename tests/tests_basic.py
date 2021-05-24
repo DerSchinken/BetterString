@@ -13,7 +13,6 @@ print(test_string.upper())
 print(test_string.upper(3))
 print(test_string.upper(3, 1))
 print(test_string.upper(start=1, end=3))
-print(test_string.list())
 print(test_string.colorize(color=BLUE))
 print(test_string.colorize(color=BLUE, bg="yellow", bold=True, underline=True, start=4))
 print(test_string.colorize(color=BLUE, bg="yellow", end=4))
@@ -47,13 +46,13 @@ print(test_string.count("e"))
 print(test_string.count("\\w", regex=True))
 
 test_string = BetterString("['This represents a list', 'Test list']")
-print(test_string.list())
+print(test_string.to_literal())
 
 test_string = BetterString("{'This represents a dictionary': 'Test Dictionary'}")
-print(test_string.dict())
+print(test_string.to_literal())
 
 test_string = BetterString("1337")
-print(test_string.int())
+print(test_string.to_literal())
 
 # Some normal str funcs to verify that they work
 test_string = BetterString("{} String")
@@ -61,7 +60,7 @@ print(test_string.format("Test"))
 print(test_string.join(["t", "e", "s", "t"]))
 
 test_string = BetterString("{test} {test} {} String")
-print(test_string.format("tessst", test="Test"))
+print(test_string.format("test", test="Test"))
 
 print(test_string.binary())
 print(test_string.binary(False))
@@ -71,3 +70,5 @@ print(test_string.hex())
 
 print(test_string.swap(0, 2))
 print(test_string.swap(2, 0))
+
+print(test_string.permutations())

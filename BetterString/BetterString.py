@@ -6,6 +6,7 @@ from .Exceptions import *
 import re
 import random
 import hashlib
+import itertools
 
 # Important: Always put out new version on PyPI before pushing to github
 
@@ -142,43 +143,15 @@ class BetterString(str):
 
         return BetterString(upper_string)
 
-    def list(self) -> list:
+    def to_literal(self):
         """
-        Converts your string into a list or a tuple
-        If the string is representing a list it will
-        convert it to the represented list
-        if not it will return every character in a list
+        Returns the string converted to its literal
         """
         try:
-            list_ = eval(self.string)
+            converted = eval(self.string)
+            return converted
         except SyntaxError:
-            list_ = list(self.string)
-        except NameError:
-            list_ = list(self.string)
-
-        return list_
-
-    def int(self) -> int:
-        """
-        Converts your string into an integer
-        """
-        try:
-            return int(self.string)
-        except ValueError:
-            raise CannotConvertToError("int")
-
-    def dict(self) -> dict:
-        """
-        Converts your string into an dictionary
-        """
-        try:
-            return eval(self.string)
-        except SyntaxError:
-            raise CannotConvertToError("dict") from None
-        except NameError:
-            raise CannotConvertToError("dict") from None
-        except TypeError:
-            raise CannotConvertToError("dict") from None
+            raise CannotConvertToError
 
     def str(self) -> str:
         """
@@ -244,6 +217,15 @@ class BetterString(str):
         Shuffles the string but an random amount of characters will disintegrate
         """
         return BetterString(ret[:random.randint(0, len(self.string) - 1)])
+
+    def permutations(self) -> itertools.permutations:
+        """
+        returns all permutations of the string
+        """
+        # We are returning the itertools.permutations object
+        # because if we convert it to a lst this would
+        # take an eternity
+        return itertools.permutations(self.string)
 
     def rainbow(self) -> BetterString:
         """

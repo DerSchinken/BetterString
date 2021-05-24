@@ -7,5 +7,6 @@
 [sha512](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/sha512.md)     
 [sha256](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/sha256.md)     
 [sha1](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/sha1.md)     
-[binary](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/binary.md)     
-[hex](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/hex.md)
+[binary](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/binary.md)       
+[hex](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/hex.md)     
+[permutations](https://github.com/DrBumm/BetterString/blob/main/docs/Examples/misc/permutations.md)   
