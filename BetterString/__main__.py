@@ -2,8 +2,8 @@ import BetterString
 import tabulate
 import sys
 
-docs = "https://github.com/DrBumm/BetterString/tree/main/docs"
-github = "https://github.com/DrBumm/BetterString"
+docs = "https://github.com/DerSchinken/BetterString/tree/main/docs"
+github = "https://github.com/DerSchinken/BetterString"
 
 options = [
     # "--short, --long", "Description"

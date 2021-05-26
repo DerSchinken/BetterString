@@ -19,9 +19,9 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
 <div class="Header">
 <p align="center">
 
-<a href="https://github.com/DrBumm/BetterString/network/members"><img src="https://img.shields.io/github/forks/DrBumm/BetterString?style=for-the-badge" alt="Forks"></a>
-<a href="https://github.com/DrBumm/BetterString/stargazers"><img src="https://img.shields.io/github/stars/DrBumm/BetterString?style=for-the-badge" alt="Stargazers"></a>
-<a href="https://github.com/DrBumm/BetterString/issues"><img src="https://img.shields.io/github/issues/DrBumm/BetterString?style=for-the-badge" alt="Issues"></a>
+<a href="https://github.com/DerSchinken/BetterString/network/members"><img src="https://img.shields.io/github/forks/DrBumm/BetterString?style=for-the-badge" alt="Forks"></a>
+<a href="https://github.com/DerSchinken/BetterString/stargazers"><img src="https://img.shields.io/github/stars/DrBumm/BetterString?style=for-the-badge" alt="Stargazers"></a>
+<a href="https://github.com/DerSchinken/BetterString/issues"><img src="https://img.shields.io/github/issues/DrBumm/BetterString?style=for-the-badge" alt="Issues"></a>
 <a href="https://python.org/"><img src="https://img.shields.io/badge/Python-%3E%3D3.8-informational?style=for-the-badge&amp;logo=appveyor" alt="Python"></a>
 </p>
 
@@ -42,14 +42,14 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
   <p align="center">
     Like a normal string but with more functionality
     <br />
-    <a href="https://github.com/DrBumm/BetterString/blob/main/docs/README.md"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/DerSchinken/BetterString/blob/main/docs/README.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/DrBumm/BetterString/issues">Report Bug</a>
+    <a href="https://github.com/DerSchinken/BetterString/issues">Report Bug</a>
     ·
-    <a href="https://github.com/DrBumm/BetterString/issues">Request Feature</a>
+    <a href="https://github.com/DerSchinken/BetterString/issues">Request Feature</a>
     <br />
-    <a href="https://github.com/DrBumm/BetterString/">View source code</a>
+    <a href="https://github.com/DerSchinken/BetterString/">View source code</a>
   </p>
 </p>
 
@@ -109,7 +109,7 @@ If it still doesn't work install pip or install a supported python version
 <!-- USAGE EXAMPLES -->
 ## Usage
 After Installing import BetterStrings and you can use it! For more information:    
-Go to the [Documentation](https://github.com/DrBumm/BetterString/blob/main/docs/README.md)
+Go to the [Documentation](https://github.com/DerSchinken/BetterString/blob/main/docs/README.md)
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -130,11 +130,11 @@ The GitHub Pages Page is not quite finished
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[forks-shield]: https://img.shields.io/github/forks/DrBumm/BetterString?style=for-the-badge
-[forks-url]: https://github.com/DrBumm/BetterString/network/members
-[stars-shield]: https://img.shields.io/github/stars/DrBumm/BetterString?style=for-the-badge
-[stars-url]: https://github.com/DrBumm/BetterString/stargazers
+[forks-shield]: https://img.shields.io/github/forks/DerSchinken/BetterString?style=for-the-badge
+[forks-url]: https://github.com/DerSchinken/BetterString/network/members
+[stars-shield]: https://img.shields.io/github/stars/DerSchinken/BetterString?style=for-the-badge
+[stars-url]: https://github.com/DerSchinken/BetterString/stargazers
 [issues-shield]: https://img.shields.io/github/issues/DrBumm/BetterString?style=for-the-badge
-[issues-url]: https://github.com/DrBumm/BetterString/issues
+[issues-url]: https://github.com/DerSchinken/BetterString/issues
 [python-shield]: https://img.shields.io/badge/Python-%3E%3D%203.7-blue?style=for-the-badge&logo=appveyor
 [python-url]: https://python.org/
