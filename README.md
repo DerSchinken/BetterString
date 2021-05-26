@@ -19,9 +19,9 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
 <div class="Header">
 <p align="center">
 
-<a href="https://github.com/DerSchinken/BetterString/network/members"><img src="https://img.shields.io/github/forks/DrBumm/BetterString?style=for-the-badge" alt="Forks"></a>
-<a href="https://github.com/DerSchinken/BetterString/stargazers"><img src="https://img.shields.io/github/stars/DrBumm/BetterString?style=for-the-badge" alt="Stargazers"></a>
-<a href="https://github.com/DerSchinken/BetterString/issues"><img src="https://img.shields.io/github/issues/DrBumm/BetterString?style=for-the-badge" alt="Issues"></a>
+<a href="https://github.com/DerSchinken/BetterString/network/members"><img src="https://img.shields.io/github/forks/DerSchinken/BetterString?style=for-the-badge" alt="Forks"></a>
+<a href="https://github.com/DerSchinken/BetterString/stargazers"><img src="https://img.shields.io/github/stars/DerSchinken/BetterString?style=for-the-badge" alt="Stargazers"></a>
+<a href="https://github.com/DerSchinken/BetterString/issues"><img src="https://img.shields.io/github/issues/DerSchinken/BetterString?style=for-the-badge" alt="Issues"></a>
 <a href="https://python.org/"><img src="https://img.shields.io/badge/Python-%3E%3D3.8-informational?style=for-the-badge&amp;logo=appveyor" alt="Python"></a>
 </p>
 
@@ -134,7 +134,7 @@ The GitHub Pages Page is not quite finished
 [forks-url]: https://github.com/DerSchinken/BetterString/network/members
 [stars-shield]: https://img.shields.io/github/stars/DerSchinken/BetterString?style=for-the-badge
 [stars-url]: https://github.com/DerSchinken/BetterString/stargazers
-[issues-shield]: https://img.shields.io/github/issues/DrBumm/BetterString?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/DerSchinken/BetterString?style=for-the-badge
 [issues-url]: https://github.com/DerSchinken/BetterString/issues
 [python-shield]: https://img.shields.io/badge/Python-%3E%3D%203.7-blue?style=for-the-badge&logo=appveyor
 [python-url]: https://python.org/

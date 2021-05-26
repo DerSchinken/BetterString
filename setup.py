@@ -14,14 +14,14 @@ setup(
     # Minor version 16
     # Maintenance version 0
 
-    author="DerSchinken (aka DrBumm)",
+    author="DerSchinken",
     description="Like a normal string but with more functionality",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(),
     install_requires=reqs,
     python_requires=">=3.7",
-    url="https://github.com/DrBumm/BetterString",
+    url="https://github.com/DerSchinken/BetterString",
     keyword=[
         "Better String",
         "String",
@@ -36,4 +36,4 @@ setup(
         "Programming Language :: Python :: 3.10"
     ],
 )
-#  https://drbumm.github.io/BetterString/
+#  https://DerSchinken.GitHub.io/BetterString/
