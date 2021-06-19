@@ -1,6 +1,6 @@
 import BetterString
-import tabulate
-import sys
+from tabulate import tabulate
+from sys import argv
 
 docs = "https://github.com/DerSchinken/BetterString/tree/main/docs"
 github = "https://github.com/DerSchinken/BetterString"
@@ -31,7 +31,7 @@ flags = {
 def print_help():
     print("Usage:\n  BetterString <Text> [options]\n")
     print("Options:")
-    print("  " + tabulate.tabulate(options, tablefmt="plain").replace("\n", "\n  "))
+    print("  " + tabulate(options, tablefmt="plain").replace("\n", "\n  "))
 
 
 def err(text):
@@ -40,7 +40,7 @@ def err(text):
 
 
 try:
-    str_text = sys.argv[1]
+    str_text = argv[1]
     if str_text == "-h" or str_text == "--help":
         print_help()
         exit()
@@ -50,7 +50,7 @@ except IndexError:
     exit()
 
 i = 0
-for arg in sys.argv[2:]:
+for arg in argv[2:]:
     arg_found = False
     for option in options:
         try:

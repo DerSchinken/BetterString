@@ -1,5 +1,5 @@
 from .Exceptions import *
-import random
+from random import choice
 
 
 class Colors:
@@ -136,7 +136,7 @@ def rainbow(text):
         i = 0
         while True:
             if not text[i] == " ":
-                ret += random.choice(color_list) + text[i]
+                ret += choice(color_list) + text[i]
             else: ret += " "
             i += 1
     except IndexError:

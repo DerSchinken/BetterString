@@ -1,12 +1,14 @@
 from __future__ import annotations
+
 from string import ascii_lowercase as lc, ascii_uppercase as uc
+from hashlib import sha1, sha256, sha512
+from typing import Tuple, Any, Iterator
+from itertools import permutations
+from . import Color, Exceptions
 from functools import wraps
-from .Color import *
-from .Exceptions import *
-import re
-import random
-import hashlib
-import itertools
+from re import sub, findall
+from random import randint
+
 
 # Important: Always put out new version on PyPI before pushing to github
 
@@ -37,6 +39,8 @@ WHITE_BG = 'WHITE'
 
 # Decorators
 def shuffle_funcs(f):
+    # randoms shuffle function doesn't work
+    # idk why but it just doesn't return anything
     @wraps(f)
     def wrapper(*args):
         # Checking that there are no args
@@ -50,7 +54,7 @@ def shuffle_funcs(f):
         # if indexes done has the length of the string
         # break
         while True:
-            index = random.randint(0, len(args[0].string) - 1)
+            index = randint(0, len(args[0].string) - 1)
             if index not in indexes_done:
                 ret += args[0].string[index]
                 indexes_done.append(index)
@@ -151,7 +155,7 @@ class BetterString(str):
             converted = eval(self.string)
             return converted
         except SyntaxError:
-            raise CannotConvertToError
+            raise Exceptions.CannotConvertToError
 
     def str(self) -> str:
         """
@@ -201,8 +205,8 @@ class BetterString(str):
             end = len(self.string)
 
         return BetterString(
-            colorize(text=self.string, color=color, bold=bold,
-                     underline=underline, bg=bg, start=start, end=end))
+            Color.colorize(text=self.string, color=color, bold=bold,
+                           underline=underline, bg=bg, start=start, end=end))
 
     @shuffle_funcs
     def shuffle(self, ret) -> BetterString:
@@ -216,40 +220,40 @@ class BetterString(str):
         """
         Shuffles the string but an random amount of characters will disintegrate
         """
-        return BetterString(ret[:random.randint(0, len(self.string) - 1)])
+        return BetterString(ret[:randint(0, len(self.string) - 1)])
 
-    def permutations(self) -> itertools.permutations:
+    def permutations(self) -> Iterator[Tuple[Any, ...]]:
         """
         returns all permutations of the string
         """
         # We are returning the itertools.permutations object
-        # because if we convert it to a lst this would
-        # take an eternity
-        return itertools.permutations(self.string)
+        # because if we convert it to a list this would
+        # take an eternity depending on the length of the string
+        return permutations(self.string)
 
     def rainbow(self) -> BetterString:
         """
         Makes the string rainbow colored
         """
-        return BetterString(rainbow(text=self.string))
+        return BetterString(Color.rainbow(text=self.string))
 
     def sha512(self) -> str:
         """
         Returns the sha512 value of the string
         """
-        return hashlib.sha512(self.string.encode()).hexdigest()
+        return sha512(self.string.encode()).hexdigest()
 
     def sha256(self) -> str:
         """
         Returns the sha256 value of the string
         """
-        return hashlib.sha256(self.string.encode()).hexdigest()
+        return sha256(self.string.encode()).hexdigest()
 
     def sha1(self) -> str:
         """
         Returns the sha1 value of the string
         """
-        return hashlib.sha1(self.string.encode()).hexdigest()
+        return sha1(self.string.encode()).hexdigest()
 
     def rot(self, rot=13) -> BetterString:
         """
@@ -303,7 +307,7 @@ class BetterString(str):
             end = len(self.string)
 
         if regex:
-            ret = len(re.findall(str(pattern), self.string[start:end]))
+            ret = len(findall(str(pattern), self.string[start:end]))
         else:
             ret = self.string.count(pattern, start, end)
 
@@ -327,7 +331,7 @@ class BetterString(str):
             count = len(self.string)
 
         if regex:
-            ret = re.sub(old, new, self.string, count)
+            ret = sub(old, new, self.string, count)
         else:
             ret = self.string.replace(old, new, count)
 
@@ -351,7 +355,7 @@ class BetterString(str):
             count = len(self.string)
 
         if regex:
-            ret = re.sub(str(pattern), "", self.string, count)
+            ret = sub(str(pattern), "", self.string, count)
         else:
             ret = self.string.replace(pattern, "", count)
 
@@ -582,7 +586,7 @@ class BetterString(str):
             if slice_size < str_len:
                 ret = self.string[item]
             else:
-                raise IndexStartOutOfBoundError
+                raise Exceptions.IndexStartOutOfBoundError
 
         elif isinstance(item, str):
             raise TypeError("String indices must be integers!")
@@ -590,7 +594,7 @@ class BetterString(str):
         return BetterString(ret)
 
     def __call__(self) -> Exception:
-        raise StringNotCallable()
+        raise Exceptions.StringNotCallable()
 
     def __repr__(self) -> str:
         return '"' + self.string + '"'
