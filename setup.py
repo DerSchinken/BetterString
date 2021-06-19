@@ -9,7 +9,7 @@ with open("requirements.txt", "r") as requirements:
 
 setup(
     name="BetterString",
-    version="2.16.0",
+    version="2.16.1",
     # Major version 2
     # Minor version 16
     # Maintenance version 0
@@ -21,7 +21,7 @@ setup(
     packages=find_packages(),
     install_requires=reqs,
     python_requires=">=3.7",
-    url="https://github.com/DerSchinken/BetterString",
+    url="https://GitHub.com/DerSchinken/BetterString",
     keyword=[
         "Better String",
         "String",
