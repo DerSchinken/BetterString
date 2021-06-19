@@ -10,27 +10,27 @@ except IndexError as IE:
 
 try:
     test_string[12312121212312:]
-except IndexStartOutOfBoundError as ISOOB:
+except Exceptions.IndexStartOutOfBoundError as ISOOB:
     print(ISOOB)
 
 try:
     test_string.to_literal()
-except CannotConvertToError as CCTE:
+except Exceptions.CannotConvertToError as CCTE:
     print(CCTE)
 
 try:
     test_string.to_literal()
-except CannotConvertToError as CCTE:
+except Exceptions.CannotConvertToError as CCTE:
     print(CCTE)
 
 try:
     test_string()
-except StringNotCallable as SNC:
+except Exceptions.StringNotCallable as SNC:
     print(SNC)
 
 try:
     test_string.colorize("wrong color")
-except ColorNotFoundError as CNFE:
+except Exceptions.ColorNotFoundError as CNFE:
     print(CNFE)
 
 try:
