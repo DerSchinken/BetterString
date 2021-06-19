@@ -10,7 +10,7 @@ from re import sub, findall
 from random import randint
 
 
-# Important: Always put out new version on PyPI before pushing to github
+# Important : Always put out new version on PyPI before pushing to github
 
 FULL_SIZE = "fs"
 START = 0
