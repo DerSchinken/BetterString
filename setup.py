@@ -4,22 +4,23 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme:
     long_description = readme.read().replace("Â", "")
 # Get requirements.txt
-with open("requirements.txt", "r") as requirements:
-    reqs = requirements.read().splitlines()
+# not required right now
+# with open("requirements.txt", "r") as requirements:
+#    reqs = requirements.read().splitlines()
 
 setup(
     name="BetterString",
-    version="2.16.4",
+    version="2.16.6",
     # Major version 2
     # Minor version 16
-    # Maintenance version 4
+    # Maintenance version 6
 
     author="DerSchinken",
     description="Like a normal string but with more functionality",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    install_requires=reqs,
+    # install_requires=reqs,
     python_requires=">=3.7",
     url="https://GitHub.com/DerSchinken/BetterString",
     keyword=[
