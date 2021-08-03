@@ -96,7 +96,7 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
-Python >= 3.7
+Python >= 3.6
 
 ### Installation
 1. Open a terminal

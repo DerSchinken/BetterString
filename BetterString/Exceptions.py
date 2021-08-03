@@ -9,12 +9,12 @@ class StringNotCallable(Exception):
 
 
 class ColorNotFoundError(Exception):
-    def __init__(self, color):
+    def __init__(self, color: str):
         super().__init__(f"Color '{color}' not found!")
 
 
 class BackgroundColorNotFound(Exception):
-    def __init__(self, color):
+    def __init__(self, color: str):
         super().__init__(f"Background color '{color}' not found!")
 
 

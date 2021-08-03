@@ -5,7 +5,7 @@ from random import choice
 class Colors:
     """
     Usage:
-    tcolors.color_you_want + "your string" + tcolors.ENDC
+    Colors.color_you_want + "your string" + Special.ENDC
     """
     BLUE = '\033[94m'
     CYAN = '\033[96m'
@@ -129,15 +129,16 @@ def colorize(**kwargs) -> str:
     return ret
 
 
-def rainbow(text):
-    ret = ""
-    color_list = [colors.CYAN, colors.RED, colors.BLACK, colors.BLUE, colors.GREEN, colors.WHITE, colors.ORANGE, colors.PURPLE, colors.YELLOW]
+def rainbow(text: str) -> str:
+    ret, color_list = "", [colors.CYAN, colors.RED, colors.BLACK, colors.BLUE, colors.GREEN, colors.WHITE,
+                           colors.ORANGE, colors.PURPLE, colors.YELLOW]
     try:
         i = 0
         while True:
             if not text[i] == " ":
                 ret += choice(color_list) + text[i]
-            else: ret += " "
+            else:
+                ret += " "
             i += 1
     except IndexError:
         return ret + Special.ENDC

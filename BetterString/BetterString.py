@@ -12,7 +12,7 @@ from random import randint
 
 # Important: Always put out new version on PyPI before pushing to github
 
-FULL_SIZE = "fs"
+FULL_SIZE = "full_size"
 START = 0
 
 # Colors
@@ -72,10 +72,10 @@ class BetterString(str):
     BetterString has the same functions as str with a few extras and changes
     """
 
-    def __init__(self, string):
+    def __init__(self, string: str):
         self.string = str(string)
 
-    def lower(self, end=FULL_SIZE, start=START) -> BetterString:
+    def lower(self, end: int = FULL_SIZE, start: int = START) -> BetterString:
         """
         Better Upper function. You can
         choose how many characters will
@@ -83,7 +83,7 @@ class BetterString(str):
         """
         lower_string, i = "", 0
         # Getting full size
-        if end == "fs":
+        if end == FULL_SIZE:
             end = len(self.string)
         # Checking if everything has the right type or can be converted to the right type
         elif isinstance(end, str):
@@ -111,7 +111,7 @@ class BetterString(str):
 
         return BetterString(lower_string)
 
-    def upper(self, end=FULL_SIZE, start=START) -> BetterString:
+    def upper(self, end: int = FULL_SIZE, start: int = START) -> BetterString:
         """
         Better Upper function. You can
         choose how many characters will
@@ -119,7 +119,7 @@ class BetterString(str):
         """
         upper_string, i = "", 0
         # Getting full size
-        if end == "fs":
+        if end == FULL_SIZE:
             end = len(self.string)
         # Checking if everything has the right type or can be converted to the right type
         elif isinstance(end, str):
@@ -163,8 +163,8 @@ class BetterString(str):
         """
         return self.string
 
-    def colorize(self, color=None, bg=None, bold=False, underline=False,
-                 start=START, end=FULL_SIZE) -> BetterString:
+    def colorize(self, color: str = None, bg: str = None, bold: bool = False, underline: bool = False,
+                 start: int = START, end: int = FULL_SIZE) -> BetterString:
         """
         Colorizes the string with the given color
 
@@ -197,16 +197,28 @@ class BetterString(str):
         :param end: end of colors and stuff
         """
         # If nothing is set change nothing and return self
-        if color is None and bg is None and bold is False and underline is False and start == START and end == FULL_SIZE:
+        if color is None and \
+                bg is None and \
+                bold is False and \
+                underline is False and \
+                start == START and end == FULL_SIZE:
             return self
 
         # Getting full size
-        if end == "fs":
+        if end == FULL_SIZE:
             end = len(self.string)
 
         return BetterString(
-            Color.colorize(text=self.string, color=color, bold=bold,
-                           underline=underline, bg=bg, start=start, end=end))
+            Color.colorize(
+                text=self.string,
+                color=color,
+                bold=bold,
+                underline=underline,
+                bg=bg,
+                start=start,
+                end=end
+            )
+        )
 
     @shuffle_funcs
     def shuffle(self, ret) -> BetterString:
@@ -255,7 +267,7 @@ class BetterString(str):
         """
         return sha1(self.string.encode()).hexdigest()
 
-    def rot(self, rot=13) -> BetterString:
+    def rot(self, rot: int = 13) -> BetterString:
         """
         Caesar encryption
 
@@ -265,27 +277,29 @@ class BetterString(str):
 
         return BetterString(self.string.translate(rot))
 
-    def binary(self, list_=False) -> list or BetterString:
+    def binary(self, liste: bool = False) -> list or BetterString:
         """
         Returns the binary of the string
 
-        :param list_: Set to True if return should be a list
+        :param liste: Set to True if return should be a list
         """
-        if not isinstance(list_, bool):
-            raise TypeError("'list_' has to be of type 'bool'!")
+        # liste is german for list
+        if not isinstance(liste, bool):
+            raise TypeError("'liste' has to be of type 'bool'!")
 
         # Iterating over all characters and converting them to binary
         ret = []
         for byte in bytearray(self.string, "utf-8"):
             ret.append(bin(byte).replace("0b", ""))
 
-        if list_:
+        if liste:
             return ret
-        elif not list_:
+        elif not liste:
             return BetterString(' '.join(ret))
 
-        # return BetterString(' '.join([bin(x) for x in bytearray(self.string, "utf-8")])).remove("0b") if not list_ else [bin(x).replace("0b", "") for x in bytearray(self.string, "utf-8")]
-        # ^ Ez oneliner; but it is not checking the type of list_
+        # return BetterString(' '.join([bin(x) for x in bytearray(self.string, "utf-8")])).remove("0b") if not liste
+        # else [bin(x).replace("0b", "") for x in bytearray(self.string, "utf-8")] ^ Ez oneliner; but it is not
+        # checking the type of liste
 
     def hex(self):
         """
@@ -293,7 +307,7 @@ class BetterString(str):
         """
         return self.string.encode().hex()
 
-    def count(self, pattern, start: int = START, end: int = FULL_SIZE, regex: bool = False) -> int:
+    def count(self, pattern: str, start: int = START, end: int = FULL_SIZE, regex: bool = False) -> int:
         """
         This counts how many time the pattern appears
         in the string.
@@ -303,7 +317,7 @@ class BetterString(str):
         **You can use regex**
         """
         # Getting the full size
-        if end == "fs":
+        if end == FULL_SIZE:
             end = len(self.string)
 
         if regex:
@@ -327,7 +341,7 @@ class BetterString(str):
         replaced.
         """
         # Getting the full size
-        if count == "fs":
+        if count == FULL_SIZE:
             count = len(self.string)
 
         if regex:
@@ -351,7 +365,7 @@ class BetterString(str):
         replaced.
         """
         # Getting the full size
-        if count == "fs":
+        if count == FULL_SIZE:
             count = len(self.string)
 
         if regex:
@@ -361,7 +375,7 @@ class BetterString(str):
 
         return BetterString(ret)
 
-    def swap(self, index1, index2):
+    def swap(self, index1: int, index2: int):
         """
         Swaps character with index of index1 with character of index index2
         """
@@ -450,7 +464,7 @@ class BetterString(str):
 
         return BetterString(ret)
 
-    def join(self, iterable) -> BetterString:
+    def join(self, iterable: Iterator) -> BetterString:
         """
         Concatenate any number of strings.
 
@@ -604,10 +618,8 @@ class BetterString(str):
 
         return BetterString(ret)
 
-    def __getnewargs__(self) -> BetterString:
-        ret = self.string.__getnewargs__()
-
-        return BetterString(ret)
+    def __getnewargs__(self) -> tuple:
+        return self.string.__getnewargs__()
 
     def __mul__(self, value: int) -> BetterString:
         ret = self.string.__mul__(int(value))
@@ -618,5 +630,6 @@ class BetterString(str):
         ret = self.string.__rmul__(int(value))
 
         return BetterString(ret)
+
 
 # Discord: Peter | Btw. SCHINKEN!!1!!11#0930
