@@ -72,3 +72,5 @@ print(test_string.swap(0, 2))
 print(test_string.swap(2, 0))
 
 print(test_string.permutations())
+
+print(test_string.schinken_hash())

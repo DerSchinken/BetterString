@@ -85,9 +85,7 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
 
 ### Built With
 
-* [Python](https://python.org/)     
-* It is installing tabulate but that is not needed (at least now) it is for and planned feature    
-
+* [Python](https://python.org/)      
 
 
 <!-- GETTING STARTED -->

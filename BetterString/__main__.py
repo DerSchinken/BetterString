@@ -1,3 +1,6 @@
+# This feature will not come at anytime for sure
+# but i will save this just in case
+"""
 import BetterString
 from tabulate import tabulate
 from sys import argv
@@ -39,6 +42,7 @@ def err(text):
     exit(-1)
 
 
+str_text = ""
 try:
     str_text = argv[1]
     if str_text == "-h" or str_text == "--help":
@@ -46,8 +50,7 @@ try:
         exit()
 except IndexError:
     print_help()
-    str_text = ""
-    exit()
+    exit(0)
 
 i = 0
 for arg in argv[2:]:
@@ -55,11 +58,17 @@ for arg in argv[2:]:
     for option in options:
         try:
             if arg in [option[0].replace(",", ""), option[1]]:
-                flags[arg.replace("-", "").replace("--", "")] = True
-                arg_found = True
-                break
+                if getattr(flags, arg.replace("-", "").replace("--", ""), False):
+                    flags[arg.replace("-", "").replace("--", "")] = True
+                    arg_found = True
+                    break
+                else:
+                    raise KeyError
         except IndexError:
             pass
+        except KeyError:
+            arg_found = False
+            break
     if not arg_found:
         err(f"Wrong argument '{arg}'")
     i += 1
@@ -90,3 +99,4 @@ if not (flags["u"] or flags["upper"]) and not (flags["l"] or flags["lower"]):
 ret += BetterString.Special.ENDC
 
 print(ret)
+"""
