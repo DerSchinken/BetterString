@@ -1,8 +1,8 @@
 ### BetterString.binary
 Returns the binary of the string    
 
-`BetterString.binary(list_ [optional])`    
-_list__ is default: False    
+`BetterString.binary(liste [optional])`    
+_liste_ is default: False    
 
 Example:
 ```python 
