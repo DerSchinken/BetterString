@@ -567,6 +567,25 @@ class BetterString(str):
 
         return BetterString(ret)
 
+    # easter egg warning
+    def schinken_hash(self) -> str:
+        string, char_decs, char_sum, result = str(self.string), [], 0, 0
+
+        # getting the sum of all chars and appending the char decs to a list
+        for char in string:
+            char_sum += ord(char)
+            char_decs.append(ord(char))
+        # result += every char dec ** sum of all chars + length of the string
+        for char_dec in char_decs:
+            result += char_dec ** char_sum + len(string)
+
+        # return hex value of result removing the 0x and only display half - the length of the string
+        return hex(result)[2:int(len(hex(result)) / len(string))]
+
+        # Short
+        # string_hex = hex(sum([ord(char)**sum(map(ord, self.string))+len(self.string) for char in self.string]))
+        # return "SCH" + string_hex[2:int(len(string_hex)/len(self.string))]
+
     def zfill(self, width: int) -> BetterString:
         """
         Pad a numeric string S with zeros on the left, to fill a field of the specified width.
