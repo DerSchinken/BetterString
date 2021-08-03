@@ -4,8 +4,8 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme:
     long_description = readme.read().replace("Â", "")
 # Get requirements.txt
-with open("requirements.txt", "r") as requirements:
-    reqs = requirements.read().splitlines()
+# with open("requirements.txt", "r") as requirements:
+#    reqs = requirements.read().splitlines()
 
 setup(
     name="BetterString",
@@ -19,7 +19,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    install_requires=reqs,
+    # install_requires=reqs,
     python_requires=">=3.6",
     url="https://GitHub.com/DerSchinken/BetterString",
     keyword=[
