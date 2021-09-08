@@ -90,12 +90,12 @@ class BetterString(str):
             try:
                 end = int(end)
             except ValueError:
-                raise TypeError("end has to be of type Int")
+                raise TypeError("end has to be of type Int") from None
         if isinstance(start, str):
             try:
                 start = int(start)
             except ValueError:
-                raise TypeError("start has to be of type Int")
+                raise TypeError("start has to be of type Int") from None
 
         # Checking that nothing is to big
         if end > len(self.string):
@@ -131,7 +131,7 @@ class BetterString(str):
             try:
                 start = int(start)
             except ValueError:
-                raise TypeError("Start has to be of type Int")
+                raise TypeError("Start has to be of type Int") from None
 
         # Checking that nothing is to big
         if end > len(self.string):
@@ -155,7 +155,7 @@ class BetterString(str):
             converted = eval(self.string)
             return converted
         except SyntaxError:
-            raise Exceptions.CannotConvertToError
+            raise Exceptions.CannotConvertToError from None
 
     def str(self) -> str:
         """
@@ -385,12 +385,12 @@ class BetterString(str):
             try:
                 index1 = int(index1)
             except ValueError:
-                raise TypeError("index1 has to be of type int!")
+                raise TypeError("index1 has to be of type int!") from None
         if not isinstance(index2, int):
             try:
                 index2 = int(index2)
             except ValueError:
-                raise TypeError("index2 has to be of type int!")
+                raise TypeError("index2 has to be of type int!") from None
 
         # Turning the string into an list because
         # strings are immutable but lists are mutable
@@ -607,7 +607,7 @@ class BetterString(str):
             try:
                 item = int(item)
             except ValueError:
-                raise TypeError("String indices must be integers")
+                raise TypeError("String indices must be integers") from None
 
         if isinstance(item, int):
             ret = self.string[int(item)]

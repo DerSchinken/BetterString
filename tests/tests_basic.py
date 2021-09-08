@@ -63,7 +63,6 @@ test_string = BetterString("{test} {test} {} String")
 print(test_string.format("test", test="Test"))
 
 print(test_string.binary())
-print(test_string.binary(False))
 print(test_string.binary(True))
 
 print(test_string.hex())

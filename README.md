@@ -22,7 +22,7 @@ This Readme is from: https://github.com/othneildrew/Best-README-Template
 <a href="https://github.com/DerSchinken/BetterString/network/members"><img src="https://img.shields.io/github/forks/DerSchinken/BetterString?style=for-the-badge" alt="Forks"></a>
 <a href="https://github.com/DerSchinken/BetterString/stargazers"><img src="https://img.shields.io/github/stars/DerSchinken/BetterString?style=for-the-badge" alt="Stargazers"></a>
 <a href="https://github.com/DerSchinken/BetterString/issues"><img src="https://img.shields.io/github/issues/DerSchinken/BetterString?style=for-the-badge" alt="Issues"></a>
-<a href="https://python.org/"><img src="https://img.shields.io/badge/Python-%3E%3D3.8-informational?style=for-the-badge&amp;logo=appveyor" alt="Python"></a>
+<a href="https://python.org/"><img src="https://img.shields.io/badge/Python-%3E%3D3.6-informational?style=for-the-badge&amp;logo=appveyor" alt="Python"></a>
 </p>
 
 <!-- PROJECT SHIELDS -->
