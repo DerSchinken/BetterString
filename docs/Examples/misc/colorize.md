@@ -1,14 +1,14 @@
 ### BetterString.colorize
 Colorizes the string with the given color      
 Available colors:    
-`'BLUE', 'CYAN', 'GREEN', 'ORANGE', 'RED', 'BLACK', 'PURPLE', 'WHITE', 'YELLOW'`            
+`'BLUE', 'CYAN', 'GREEN', 'RED', 'BLACK', 'WHITE', 'YELLOW', 'MAGENTA''`            
 Or you use the variables from the package:     
-`'BetterString.BLUE', 'BetterString.CYAN', 'BetterString.GREEN', 'BetterString.ORANGE', 'BetterString.RED', 'BetterString.BLACK', 'BetterString.PURPLE', 'BetterString.WHITE', 'BetterString.YELLOW'`    
+`'BetterString.BLUE', 'BetterString.CYAN', ...`    
 
 Available background colors:   
-`'BLACK', 'RED', 'GREEN', 'YELLOW', 'BLUE', 'PURPLE', 'CYAN', 'WHITE'`    
+`'BLACK', 'RED', 'GREEN', 'YELLOW', 'BLUE', 'CYAN', 'WHITE', 'MAGENTA''`    
 Or you use the variables from the package:   
-`'BetterString.BLACK_BG', 'BetterString.RED_BG', 'BetterString.GREEN_BG', 'BetterString.YELLOW_BG', 'BetterString.BLUE_BG', 'BetterString.PURPLE_BG', 'BetterString.CYAN_BG', 'BetterString.WHITE_BG'`    
+`'BetterString.BLACK_BG', 'BetterString.RED_BG', ...`    
 
 `BetterString.colorize(color [optional], bg [optional],  bold [optional], underline [optional], start [optional], end [optional]) `     
 _bold_ is default: False   
