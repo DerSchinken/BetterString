@@ -1,5 +1,9 @@
-from .Exceptions import *
+from .Exceptions import ColorNotFoundError, BackgroundColorNotFound
+from colorama import init, Fore, Back
 from random import choice
+
+
+init(autoreset=True)
 
 
 class Colors:
@@ -7,36 +11,42 @@ class Colors:
     Usage:
     Colors.color_you_want + "your string" + Special.ENDC
     """
-    BLUE = '\033[94m'
-    CYAN = '\033[96m'
-    GREEN = '\033[92m'
-    ORANGE = '\033[93m'
-    RED = '\033[91m'
-    BLACK = '\033[30m'
-    PURPLE = '\033[35m'
-    WHITE = '\033[37m'
-    YELLOW = '\033[43'
+    BLUE = Fore.BLUE
+    CYAN = Fore.CYAN
+    GREEN = Fore.GREEN
+    RED = Fore.RED
+    BLACK = Fore.BLACK
+    WHITE = Fore.WHITE
+    YELLOW = Fore.YELLOW
+    MAGENTA = Fore.MAGENTA
 
 
 colors = Colors()
 
 
 class BackgroundColors:
-    BLACK = '\033[93m'
-    RED = '\033[41m'
-    GREEN = '\033[42m'
-    YELLOW = '\033[43m'
-    BLUE = '\033[44m'
-    PURPLE = '\033[35m'
-    CYAN = '\033[46m'
-    WHITE = '\033[47m'
+    """
+    Usage:
+    Colors.background_color_you_want + "your string" + Special.ENDC
+    """
+    BLACK = Back.BLACK
+    RED = Back.RED
+    GREEN = Back.GREEN
+    YELLOW = Back.YELLOW
+    BLUE = Back.BLUE
+    CYAN = Back.CYAN
+    WHITE = Back.WHITE
+    MAGENTA = Back.MAGENTA
 
 
 background_colors = BackgroundColors()
 
 
 class Special:
-    HEADER = '\033[95m'
+    """
+    Usage:
+    Colors.effect_you_want + "your string" + Special.ENDC
+    """
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
@@ -131,7 +141,7 @@ def colorize(**kwargs) -> str:
 
 def rainbow(text: str) -> str:
     ret, color_list = "", [colors.CYAN, colors.RED, colors.BLACK, colors.BLUE, colors.GREEN, colors.WHITE,
-                           colors.ORANGE, colors.PURPLE, colors.YELLOW]
+                           colors.YELLOW, colors.MAGENTA]
     try:
         i = 0
         while True:

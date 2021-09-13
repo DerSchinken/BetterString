@@ -1,3 +1,3 @@
-from .BetterString import *
-from .Color import *
+from .BetterString import BetterString
 from .Exceptions import *
+from .constants import *

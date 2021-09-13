@@ -1,40 +1,17 @@
 from __future__ import annotations
 
 from string import ascii_lowercase as lc, ascii_uppercase as uc
+from typing import Tuple, Any, Iterator, List
 from hashlib import sha1, sha256, sha512
-from typing import Tuple, Any, Iterator
 from itertools import permutations
 from . import Color, Exceptions
 from functools import wraps
 from re import sub, findall
 from random import randint
+from .constants import *
 
 
 # Important: Always put out new version on PyPI before pushing to github
-
-FULL_SIZE = "full_size"
-START = 0
-
-# Colors
-BLUE = 'BLUE'
-CYAN = 'CYAN'
-GREEN = 'GREEN'
-ORANGE = 'ORANGE'
-RED = 'RED'
-BLACK = 'BLACK'
-PURPLE = 'PURPLE'
-WHITE = 'WHITE'
-YELLOW = 'YELLOW'
-
-# Background Colors
-BLACK_BG = 'BLACK'
-RED_BG = 'RED'
-GREEN_BG = 'GREEN'
-YELLOW_BG = 'YELLOW'
-BLUE_BG = 'BLUE'
-PURPLE_BG = 'PURPLE'
-CYAN_BG = 'CYAN'
-WHITE_BG = 'WHITE'
 
 
 # Decorators
@@ -70,6 +47,41 @@ class BetterString(str):
     """
     This returns a string with more functionality!
     BetterString has the same functions as str with a few extras and changes
+
+    Functions:
+      lower         -  better lower
+      upper         -  better upper
+      replace       -  better replace
+      count         -  better count
+      remove        -  use remove instead of str.replace(pattern, "")
+      str           -  returns the original string
+      swap          -  swaps characters of the string
+      to_literal    -  converts the string to literal
+      binary        -  converts the string to binary
+      bomb          -  randomly removes characters from string
+      colorize      -  colorizes your string
+      hex           -  converts  the string to hex
+      permutations  -  returns all permutations from string
+      shuffle       -  shuffles characters from string
+      rainbow       -  randomly assigns colors to every character
+      rot           -  Caesar cipher
+      sha1          -  sha-1
+      sha256        -  sha-256
+      sha512        -  sha-512
+      ... there are more functions but i didn't change them so i dont list them here
+
+    Variables:
+      string        -  The original string
+
+    Magic Functions:
+      __init__
+      __call__
+      __repr__
+      __add__
+      __getnewargs__
+      __getitem__
+      __mul__
+      __rmul__
     """
 
     def __init__(self, string: str):
@@ -172,12 +184,11 @@ class BetterString(str):
         'BLUE',
         'CYAN',
         'GREEN',
-        'ORANGE',
         'RED',
         'BLACK',
-        'PURPLE',
         'WHITE',
-        'YELLOW'
+        'YELLOW',
+        'MAGENTA'
 
         Available background colors:
         'BLACK',
@@ -185,9 +196,9 @@ class BetterString(str):
         'GREEN',
         'YELLOW',
         'BLUE',
-        'PURPLE',
         'CYAN',
-        'WHITE'
+        'WHITE',
+        'MAGENTA'
 
         :param color: Color of the text
         :param bold: If the text should be bold
@@ -196,7 +207,7 @@ class BetterString(str):
         :param start: start of colors and stuff
         :param end: end of colors and stuff
         """
-        # If nothing is set change nothing and return self
+        # If nothing is set, change nothing and return self
         if color is None and \
                 bg is None and \
                 bold is False and \
@@ -394,7 +405,7 @@ class BetterString(str):
 
         # Turning the string into an list because
         # strings are immutable but lists are mutable
-        tmp_new_string = list(self.string)
+        tmp_new_string: List[str] = list(self.string)
         try:
             # Getting the chars of both indexes
             index1_char = tmp_new_string[index1]
