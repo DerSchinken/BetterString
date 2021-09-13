@@ -9,10 +9,10 @@ with open("README.md", "r") as readme:
 
 setup(
     name="BetterString",
-    version="2.16.9",
+    version="2.16.10",
     # Major version 2
     # Minor version 16
-    # Maintenance version 8
+    # Maintenance version 10
 
     author="DerSchinken",
     description="Like a normal string but with more functionality",
@@ -21,7 +21,10 @@ setup(
     packages=find_packages(),
     # install_requires=reqs,
     python_requires=">=3.6",
-    url="https://GitHub.com/DerSchinken/BetterString",
+    project_urls={
+        "Homepage": "http://index12.bplaced.net/",
+        "Github": "https://github.com/DerSchinken/PasswordCardGenerator",
+    },
     keyword=[
         "Better String",
         "String",
