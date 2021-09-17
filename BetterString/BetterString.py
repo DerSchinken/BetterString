@@ -3,44 +3,14 @@ from __future__ import annotations
 from string import ascii_lowercase as lc, ascii_uppercase as uc
 from typing import Tuple, Any, Iterator, List
 from hashlib import sha1, sha256, sha512
+from random import randint, shuffle
 from itertools import permutations
 from . import Color, Exceptions
-from functools import wraps
 from re import sub, findall
-from random import randint
 from .constants import *
 
 
 # Important: Always put out new version on PyPI before pushing to github
-
-
-# Decorators
-def shuffle_funcs(f):
-    # randoms shuffle function doesn't work
-    # idk why but it just doesn't return anything
-    @wraps(f)
-    def wrapper(*args):
-        # Checking that there are no args
-        if len(args) > 1:
-            raise TypeError(f"{f.__name__} takes 1 positional arguments but {len(args)} was given")
-
-        ret, indexes_done = "", []
-        # While not every char is done
-        # choose a random char put it to the ret
-        # append the char index to indexes done
-        # if indexes done has the length of the string
-        # break
-        while True:
-            index = randint(0, len(args[0].string) - 1)
-            if index not in indexes_done:
-                ret += args[0].string[index]
-                indexes_done.append(index)
-            elif len(indexes_done) == len(args[0].string):
-                break
-
-        return f(args[0], ret)
-
-    return wrapper
 
 
 class BetterString(str):
@@ -231,18 +201,24 @@ class BetterString(str):
             )
         )
 
-    @shuffle_funcs
-    def shuffle(self, ret) -> BetterString:
+    def shuffle(self) -> BetterString:
         """
         Shuffles the string
         """
+        ret = list(self.string)
+        shuffle(ret)
+        ret = ''.join(ret)
+
         return BetterString(ret)
 
-    @shuffle_funcs
-    def bomb(self, ret) -> BetterString:
+    def bomb(self) -> BetterString:
         """
         Shuffles the string but an random amount of characters will disintegrate
         """
+        ret = list(self.string)
+        shuffle(ret)
+        ret = ''.join(ret)
+
         return BetterString(ret[:randint(0, len(self.string) - 1)])
 
     def permutations(self) -> Iterator[Tuple[Any, ...]]:

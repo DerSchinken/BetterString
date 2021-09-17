@@ -9,10 +9,10 @@ with open("requirements.txt", "r") as requirements:
 
 setup(
     name="BetterString",
-    version="2.17.0",
+    version="2.17.1",
     # Major version 2
     # Minor version 17
-    # Maintenance version 0
+    # Maintenance version 1
 
     author="DerSchinken",
     description="Like a normal string but with more functionality",
@@ -23,7 +23,7 @@ setup(
     python_requires=">=3.6",
     project_urls={
         "Homepage": "http://index12.bplaced.net/",
-        "Github": "https://github.com/DerSchinken/PasswordCardGenerator",
+        "Github": "https://github.com/DerSchinken/BetterString",
     },
     keyword=[
         "Better String",
@@ -35,6 +35,7 @@ setup(
 
         'Operating System :: OS Independent',
 
+        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
