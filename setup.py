@@ -9,10 +9,10 @@ with open("requirements.txt", "r") as requirements:
 
 setup(
     name="BetterString",
-    version="2.17.2",
+    version="2.17.3",
     # Major version 2
     # Minor version 17
-    # Maintenance version 2
+    # Maintenance version 3
 
     author="DerSchinken",
     description="Like a normal string but with more functionality",
@@ -24,6 +24,9 @@ setup(
     project_urls={
         "Homepage": "http://index12.bplaced.net/",
         "Github": "https://github.com/DerSchinken/BetterString",
+    },
+    package_data={
+        "BetterString": ["*.pyi"],
     },
     keyword=[
         "Better String",
