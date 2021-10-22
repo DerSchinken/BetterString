@@ -1,3 +1,5 @@
 .idea
 .git
 __pycache__
+
+.mypy_cache

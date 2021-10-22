@@ -54,7 +54,7 @@ class BetterString(str):
       __rmul__
     """
 
-    def __init__(self, string: str):
+    def __init__(self, string: str) -> None:
         self.string = str(string)
 
     def lower(self, end: int = FULL_SIZE, start: int = START) -> BetterString:
@@ -129,7 +129,7 @@ class BetterString(str):
 
         return BetterString(upper_string)
 
-    def to_literal(self):
+    def to_literal(self) -> any:
         """
         Returns the string converted to its literal
         """
@@ -288,7 +288,7 @@ class BetterString(str):
         # else [bin(x).replace("0b", "") for x in bytearray(self.string, "utf-8")] ^ Ez oneliner; but it is not
         # checking the type of liste
 
-    def hex(self):
+    def hex(self) -> str:
         """
         Returns the hex of the string
         """
@@ -362,7 +362,7 @@ class BetterString(str):
 
         return BetterString(ret)
 
-    def swap(self, index1: int, index2: int):
+    def swap(self, index1: int, index2: int) -> BetterString:
         """
         Swaps character with index of index1 with character of index index2
         """
